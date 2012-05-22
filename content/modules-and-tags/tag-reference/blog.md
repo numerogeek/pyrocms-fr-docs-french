@@ -6,7 +6,7 @@
 
 Afficher tous les messages de blog ou les blogs par catégorie.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
@@ -32,7 +32,7 @@ Afficher tous les messages de blog ou les blogs par catégorie.
 		</tr>
 		<tr>
 			<td width="100">
-				limitz</td>
+				limite</td>
 			<td width="100">
 				10</td>
 			<td width="100">
@@ -46,7 +46,7 @@ Afficher tous les messages de blog ou les blogs par catégorie.
 			<td width="100">
 				created_on</td>
 			<td width="100">
-				No</td>
+				n</td>
 			<td>
 				Choisissez la colonne à trier. (category_title, le titre, id_auteur, created_on, updated_on)</td>
 		</tr>
@@ -58,7 +58,7 @@ Afficher tous les messages de blog ou les blogs par catégorie.
 			<td width="100">
 				No</td>
 			<td>
-				Le sens de trier les résultats par. (asc, desc)</td>
+				Le sens du tri les résultats. (asc, desc)</td>
 		</tr>
 	</tbody>
 </table>
