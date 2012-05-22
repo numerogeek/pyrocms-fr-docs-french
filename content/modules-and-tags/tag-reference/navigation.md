@@ -1,12 +1,12 @@
 # Navigation Tags
 
-The _navigation_ tag creates lists of navigation links based on navigation groups defined in CP &gt; Design &gt; Navigation.
+Le tag _navigation_  crée une liste de lien de navigation basé sur les groups de navigation dans le panneau de controlle dans CP &gt; Design &gt; Navigation.
 
 ## navigation:links
 
 	{{ noparse }}{{ navigation:links }}{{ /noparse }}
 
-Creates a list of links for a group.
+Crée une list de lien pour un groupe.
 
 ### Attributes
 
@@ -105,13 +105,14 @@ Creates a list of links for a group.
 	</tbody>
 </table>
 
-### Single Tag Usage
+### Usage Tag simple
 
-You can use the basic single-tag approach to output a chunk of HTML by itself. This will apply the class names to the <kdb>&lt;li&gt;</kdb> tags (default) and use the <kdb>&lt;a&gt;</kdb> tags (default) to wrap the anchors.</p>
+Vous pouvez utiliser une approche simple pour afficher un morceau de HTML. 
+Cela va appliquer les noms de classe au <kdb>&lt;li&gt;</kdb> (par défaut) et les balises <kdb>&lt;a&gt;</kdb> pour les ancres.
 
 	{{ noparse }}{{ navigation:links group="header" }}{{ /noparse }}
 	
-Returns:
+Retourne:
 
 	<li class="first current"><a href="http://localhost/pyrocms/index.php">Home</a></li><li class="last"><a href="http://www.google.com">About Us</a></li>
 
@@ -119,7 +120,7 @@ You can use the basic single-tag approach like this to output a chunk of HTML th
 
 	{{ noparse }}{{ navigation:links group="header" indent="tab" link-class="foo" }}{{ /noparse }}
 	
-Returns:
+Retourne:
 
 	<li class="first current">
 		<a href="http://localhost/pyrocms/index.php" class="foo">Home</a>
@@ -130,9 +131,10 @@ Returns:
 	
 If you use nested links the default tag outputs the following html when menu items are arranged in a multilevel menu.
 
+
 	{{ noparse }}{{ navigation:links group="header" indent="tab" }}{{ /noparse }}
 	
-Returns:
+Retourne:
 	
 	<li class="first current">
 		<a href="http://example.com/home">Home</a>
@@ -216,7 +218,7 @@ You can use a combination of params to output a chunk of HTML that shows a short
 
 	{{ noparse }}{{ navigation:links group="header" tag="span" class="active" separator="|" list-tag="p" items-only="false" }}{{ /noparse }}
 	
-Returns:
+Retourne:
 
 	<p><span class="first active"><a href="http://localhost/pyrocms/index.php">Home</a></span> | <span class="last">...
 	<a href="http://www.google.com">About Us</a></span></p>

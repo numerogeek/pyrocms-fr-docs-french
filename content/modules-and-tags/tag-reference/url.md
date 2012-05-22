@@ -1,24 +1,24 @@
-# URL Tags
+﻿# URL Tags
 
-The url plugin gives you access to url data and logic.
+Le plugin URL vous donne l'accès à toutes les informations de l'URL.
 
 ## url:current
 
-Displays the full current URL.
+Affiche l'URL courante
 
-### Example
+### Exemple
 
 	{{ noparse }}{{ url:current }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	http://www.example.com/current/uri/
 
 ## url:site
 
-Displays the full site URL. Use this to generate links within your site - supply URL segments and generate a full (absolute) URL with domain name and path.
+Affiche l'url du site en entier. Utilisez  ça pour générer des liens dans vos sites. Passez des paramètres pour avoir des urls construites avec tous les segments.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
@@ -39,41 +39,41 @@ Displays the full site URL. Use this to generate links within your site - supply
 
 ### Example
 
-With no URI specified:
+Sans URI spécifié : 
 
 	{{ noparse }}{{ url:site }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	http://www.example.com
 
-With a URI specified:
+Avec une URI spécifié :
 
 	{{ noparse }}{{ url:site uri="contact" }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	http://www.example.com/contact
 
-<div class="tip"><strong>Note:</strong> The site URL includes index.php if you are not using mod_rewrite to remove it and you've not changed the <strong>$config['index_page']</strong> variable in <em>/system/cms/config/config.php</em>. For more information, see {{ link title="Removing index.php from URLs" uri="/general/getting-started/removing-indexphp-from-urls" }}.</div>
+<div class="tip"><strong>Note:</strong>  La fonctione retourne l'url avec index.php si vous n'utilisez pas using mod_rewrite pour le retirer et que vous n'avez pas changé le <strong>$config['index_page']</strong> dans <em>/system/cms/config/config.php</em>. Pour plus d'infos voir  {{ link title="Retirer index.php des url" uri="/general/demarrer-avec-pyrocms/supprimer-indexphp-des-urls" }}.</div>
 
 ## url:base
 
-Displays the full site base URL regardless of mod_rewrite settings.
+Affiche la base de l'URL sans prendre en compte le mod_rewrite.
 
 ### Example
 
 	{{ noparse }}{{ url:base }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	http://www.example.com/
 
 ## {{ noparse }}url:segments{{ /noparse }}
 
-Displays a specific URL segment.
+Affiche un segment spécifique : 
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
@@ -109,21 +109,21 @@ Displays a specific URL segment.
 	</tbody>
 </table>
 
-### Example
+### Exemple
 
 	{{ noparse }}{{ url:segments segment=&quot;1&quot; default=&quot;home&quot; }}{{ /noparse }}
 
-If the url is:
+Si l'url est :
 
 	http://www.example.com/products
 	
-The tag above will return:
+Le tag retournera : 
 
 	products
 
 ## {{ noparse }}url:anchor{{ /noparse }}</h5>
 
-Generates an anchor tag (a link) with an absolute URL (domain name and path) from URI segments. Essentially a wrapper for built in anchor() function found in the url helper.
+Génère une balise <a></a> avec l'url absolue a partir des segments URI.
 
 ### Attributes
 
@@ -172,10 +172,10 @@ Generates an anchor tag (a link) with an absolute URL (domain name and path) fro
 	</tbody>
 </table>
 
-### Example
+### Exemple
 
 	{{ noparse }}{{ url:anchor segments=&quot;users/login&quot; title=&quot;Login&quot; class=&quot;login&quot; }}{{ /noparse }}
 	
-Returns:
+Retuourne:
 
 	<a href="http://www.example.com/users/login" class="login">Login</a>
