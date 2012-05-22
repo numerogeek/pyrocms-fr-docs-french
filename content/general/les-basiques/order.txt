@@ -1,0 +1,7 @@
+le-panneau-de-controle
+organisation
+pyrocms-tags | Les Tags PyroCMS
+pyrocms-urls | Les URLs PyroCMS
+themes
+widgets-plugins-and-modules | Widgets, Plugins, et Modules
+add-ons | Add Ons

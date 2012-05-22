@@ -1,0 +1,6 @@
+prerequis-serveur | Pr&eacute;requis Serveur
+installation
+mettre-a-jour-pyrocms | Mettre &agrave; jour une version 2.x
+supprimer-indexphp-des-urls | Supprimer index.php des URLs
+environnements
+pyrocms-fichier-structure | Structure de fichiers PyroCMS

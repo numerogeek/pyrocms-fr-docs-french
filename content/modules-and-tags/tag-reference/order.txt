@@ -1,0 +1,13 @@
+blog
+galleries
+helper
+lang
+navigation
+pages
+session
+settings
+theme
+url
+user
+variables
+widgets
