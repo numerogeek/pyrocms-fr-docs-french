@@ -1,10 +1,10 @@
-# Blog Tags
+﻿# Blog Tags
 
 ## blog:posts
 
 	{{ noparse }}{{ blog:posts }}{{ /noparse }}
 
-Display all blog posts or blog posts by category.
+Afficher tous les messages de blog ou les blogs par catégorie.
 
 ### Attributes
 
@@ -12,33 +12,33 @@ Display all blog posts or blog posts by category.
 	<tbody>
 		<tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
-				Default</th>
+				Defaut</th>
 			<th>
-				Required</th>
+				Requis</th>
 			<th>
 				Description</th>
 		</tr>
 		<tr>
 			<td width="100">
-				category</td>
+				categorie</td>
 			<td width="100">
-				All Categories</td>
+				Toutes les catégories</td>
 			<td width="100">
 				No</td>
 			<td>
-				Display posts from this category only.</td>
+				Afficher les messages de cette seule catégorie.</td>
 		</tr>
 		<tr>
 			<td width="100">
-				limit</td>
+				limitz</td>
 			<td width="100">
 				10</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-				The maximum number of posts to display.</td>
+				Le nombre maximum de messages à afficher.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -48,7 +48,7 @@ Display all blog posts or blog posts by category.
 			<td width="100">
 				No</td>
 			<td>
-				Choose which column to sort by. (category_title, title, author_id, created_on, updated_on)</td>
+				Choisissez la colonne à trier. (category_title, le titre, id_auteur, created_on, updated_on)</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -58,12 +58,12 @@ Display all blog posts or blog posts by category.
 			<td width="100">
 				No</td>
 			<td>
-				The direction to sort results by. (asc, desc)</td>
+				Le sens de trier les résultats par. (asc, desc)</td>
 		</tr>
 	</tbody>
 </table>
 
-### Example</strong>
+### Exemple</strong>
 
 	{{ noparse }}{{ blog:posts limit=&quot;5&quot; order-by=&quot;title&quot; order-dir=&quot;desc&quot; category=&quot;pyrocms&quot; }}
 	&lt;h2&gt;{{ title }}&lt;/h2&gt;
