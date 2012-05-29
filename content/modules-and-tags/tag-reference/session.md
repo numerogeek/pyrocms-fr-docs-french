@@ -1,23 +1,23 @@
 # Session Tags
 
-The _session_ plugin gives you the ability to set and read session data.
+Le plugin _session_  vous donne la possibilité de définir et de lire les données de session.
 
 ## session:data
 
 	{{ noparse }}{{ session:data }}{{ /noparse }}
 	
-Displays or sets a piece of session data.
+Affiche ou définit un morceau de données de session.
 
-If you supply a *value*, it will set the session data and display nothing, otherwise the existing value of *name* will be displayed.
+Si vous fournissez une *value*, elle fixera les données de session et de ne rien afficher, sinon, la valeur actuelle de *name* qui sera affiché.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
-			<th>Name</th>
-			<th>Default</th>
-			<th>Required</th>
+			<th>Nom</th>
+			<th>Defaut</th>
+			<th>Requis</th>
 			<th>Description</th>
 		</tr>
 		<tr>
@@ -35,37 +35,37 @@ If you supply a *value*, it will set the session data and display nothing, other
 	</tbody>
 </table>
 
-### Examples
+### Exemples
 
-#### Setting data
+#### Configuration
 
 	{{ noparse }}{{ session:data name="color_preference" value="red" }}{{ /noparse }}
 
-#### Displaying data
+#### Affichage des données
 
 	{{ noparse }}{{ session:data name="color_preference" }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	red
 	
 ## session:flash	
 
-Identical to the data function, but uses flash data.
+Identique à la fonction de données, mais utilise les données flash.
 
-Flash data is data that is only available for the next page load, then it is destroyed.
+Les données Flash sont des données qui sont disponible uniquement pour le chargement de la page suivante, puis elle sont détruites.
 
-### Examples
+### Exemples
 
-#### Setting data
+#### Configuration
 
 	{{ noparse }}{{ session:flash name="color_preference" value="blue" }}{{ /noparse }}
 
-#### Displaying data
+#### Affichage des données
 
 	{{ noparse }}{{ session:data name="color_preference" }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	blue
 
@@ -73,22 +73,22 @@ Returns:
 
 Displays a flashdata message.
 
-PyroCMS has standardized messages to belong to one of three categories:
+PyroCMS a des messages normalisés qui appartiennent à l'une des trois catégories:
 
 * success
 * notice
 * error
 
-Each has a different meaning and by default will appear with a class name associated to it.
+Chacun a un sens différent et, par défaut apparaît avec un nom de classe qui lui est associé.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
-			<th>Name</th>
-			<th>Default</th>
-			<th>Required</th>
+			<th>Nom</th>
+			<th>Defaut</th>
+			<th>Requis</th>
 			<th>Description</th>
 		</tr>
 		<tr>
@@ -112,20 +112,20 @@ Each has a different meaning and by default will appear with a class name associ
 	</tbody>
 </table>
 
-### Examples
+### Exemples
 
-#### Standard Output
+#### Sortie standard
 
 	{{ noparse }}{{ session:messages }}{{ /noparse }}
 
-Returns:
+Retourne:
 
 	<div class="error">There was an error.</div>
 
-#### Custom Classes
+#### Classes personnalisées
 
 	{{ noparse }}{{ session:messages success="my_success_class" }}{{ /noparse }}
 
-Returns: 
+Retournes: 
 	
 	<div class="my_success_class">Success!</div>

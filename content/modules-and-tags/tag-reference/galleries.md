@@ -1,26 +1,26 @@
-# Galleries Tags
+# Tags Galleries
 
-**Note:** As of PyroCMS 2.1, the *Galleries* module is no longer included in the PyroCMS core code, although it can be downloaded for free from the [store](http://www.pyrocms.com/store/details/galleries).
+**Note:** Sur PyroCMS 2.1, Le module *Galleries* n'est plus inclus dans le code du noyau PyroCMS, même si elle peut être téléchargé gratuitement à partir du [store](http://www.pyrocms.com/store/details/galleries).
 
-The <em>galleries</em> tag displays images from a gallery.
+Le Tag <em>galleries</em> affiches les images d'une gallerie.
 
 ## galleries:images
 	
 	{{ noparse }}{{ galleries:images }}{{ /noparse }}
 	
-Display all images from any one gallery.
+Affiche toutes les images de toute la galerie ci.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
-				Default</th>
+				Defaut</th>
 			<th>
-				Required</th>
+				Requis</th>
 			<th>
 				Description</th>
 		</tr>
@@ -57,7 +57,7 @@ Display all images from any one gallery.
 	</tbody>
 </table>
 
-### Example
+### Exemple
 
 	{{ noparse }}{{&nbsp;galleries:images slug=&quot;test-gallery&quot; limit=&quot;5&quot; }}
 	&lt;h2&gt;{{&nbsp;title }}&lt;/h2&gt;
@@ -72,19 +72,19 @@ Display all images from any one gallery.
 
 	{{ noparse }}{{&nbsp;galleries:exists }}{{ /noparse }}
 
-Check to see if a gallery exists.
+Vérifie que la galerie existe.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
-				Default</th>
+				Defaut</th>
 			<th>
-				Required</th>
+				Requis</th>
 			<th>
 				Description</th>
 		</tr>
