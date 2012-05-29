@@ -22,7 +22,7 @@ Afficher tous les messages de blog ou les blogs par catégorie.
 		</tr>
 		<tr>
 			<td width="100">
-				categorie</td>
+				category</td>
 			<td width="100">
 				Toutes les catégories</td>
 			<td width="100">
@@ -32,7 +32,7 @@ Afficher tous les messages de blog ou les blogs par catégorie.
 		</tr>
 		<tr>
 			<td width="100">
-				limite</td>
+				limit</td>
 			<td width="100">
 				10</td>
 			<td width="100">

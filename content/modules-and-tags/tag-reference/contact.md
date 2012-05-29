@@ -1,6 +1,6 @@
-# Contact
+﻿# Contact
 
-This tag displays a contact form so that visitors can email you without seeing your email address
+Cette balise affiche un formulaire de contact où les visiteurs peuvent vous envoyer un email sans voir votre adresse e-mail
 
 	{{ noparse }}{{ contact:form }}{{ /noparse }}
     
@@ -10,11 +10,11 @@ This tag displays a contact form so that visitors can email you without seeing y
     <tbody>
         <tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
 				Default</th>
 			<th>
-				Required</th>
+				Requis</th>
 			<th>
 				Description</th>
 		</tr>
@@ -24,12 +24,12 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				None</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-				You must specify the field names that you
-                want in the form. They must be in the following
-                format: field-name="type|rules".
-                Valid types are: text, textarea, file, and dropdown.
+				Vous devez spécifier les noms des champs que vous
+                 voulez dans le formulaire. Ils doivent être dans la suivante
+                 format: field-name = "type | rules».
+                 Les types valides sont les suivants: text, textarea, fila, et dropdown.
             </td>
 		</tr>
         <tr>
@@ -38,9 +38,9 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				None</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                The size in kb of file attachments to allow.
+                La taille en ko de pièces jointes permise
             </td>
 		</tr>
         <tr>
@@ -49,11 +49,9 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				None</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                The email address to use for the reply to
-                field. If an email field is added to the form it
-                will be used instead.
+                L'adresse email à utiliser pour la réponse au message. Si un champ email est ajouté , il sera utilisé à la place
             </td>
 		</tr>
         <tr>
@@ -62,9 +60,9 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				Send</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                The text to display on the submit button.
+                Le texte à afficher sur le bouton submit.
             </td>
 		</tr>
         <tr>
@@ -73,9 +71,9 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				contact</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                Email template slug to use for sending the contact email.
+                Email template slug à utiliser pour envoyer l'e-mail de contact.
             </td>
 		</tr>
         <tr>
@@ -84,10 +82,10 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				en</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                Email template language version to use for
-                this instance of the contact form.
+                 version de modèle d'email à utiliser pour
+                 cette instance du formulaire de contact.
             </td>
 		</tr>
         <tr>
@@ -96,10 +94,10 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				Site Contact Email</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                The email address to send to. Defaults to the contact
-                email found in CP > Settings.
+                L'adresse email de l'envoi. Par défaut, le contact
+                 e-mail dans CP> Paramètres.
             </td>
 		</tr>
         <tr>
@@ -108,9 +106,9 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				Site Server Email</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                This address will show as the "from" email address.
+               Cette adresse sera dans le from.
             </td>
 		</tr>
         <tr>
@@ -119,41 +117,40 @@ This tag displays a contact form so that visitors can email you without seeing y
 			<td width="100">
 				Translated string found in lang file</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                This message is shown to the user after they
-                have sent a message. Use this to set a custom
-                message.
+                Ce message est affiché à l'utilisateur après avoir
+                envoyé un message. Utilisez cette option pour définir un message personnalisé.
             </td>
 		</tr>
         <tr>
 			<td width="100">
 				error</td>
 			<td width="100">
-				Translated string found in lang file</td>
+				Traduction trouvé dans le fichier de langue</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                Set a custom error message here. It will display if
-                there is a server error when sending the email.
+                Définir un message d'erreur personnalisé ici. Il permet d'afficher si
+                 il ya une erreur de serveur lors de l'envoi de l'email.
             </td>
 		</tr>
         <tr>
 			<td width="100">
 				success-redirect</td>
 			<td width="100">
-				Current Page</td>
+				Page Courante</td>
 			<td width="100">
-				No</td>
+				Non</td>
 			<td>
-                Set url segments here if you want the user to be sent to
-                a different page after a successful send.
+                Définir les segments url ici si vous souhaitez que l'utilisateur soit envoyé à
+                 sur autre page après un envoi avec succès.
             </td>
 		</tr>
     </tbody>
 </table>
 
-### Example
+### Exemple
 
     {{ noparse }}{{ contact:form
     name = &quot;text|required&quot;
@@ -169,7 +166,7 @@ This tag displays a contact form so that visitors can email you without seeing y
     {{ attachment }}
 {{ /contact:form }}{{ /noparse }}
 
-### Advanced Example
+### Exemple Avancé
 
     {{ noparse }}{{ contact:form
     name = &quot;text|required&quot;
@@ -195,5 +192,5 @@ This tag displays a contact form so that visitors can email you without seeing y
     {{ attachment }}
 {{ /contact:form }}{{ /noparse }}
 
-If there is an "email" field in the form, it will be used for the reply-to address. Your form should have a
-reply-to address set or else contain an "email" field in the form.
+Si il ya un champ "email" dans le formulaire, il sera utilisé pour la réponse à aborder. Votre formulaire doit avoir une
+adresse de réponse ou bien le formulaire doit contenir un champ "email".
