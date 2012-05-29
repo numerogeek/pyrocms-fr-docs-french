@@ -1,9 +1,9 @@
-# Variables
+﻿# Variables
 
-The _variables_ tag allows access to the variables you define in CP > Content > Variables.
+Les tags _variables_  permet d'accéder à des variables que vous définissez dans CP > Content > Variables.
 
 ## Tags
 
 	{{ noparse }}{{ variables:<em>variable</em> }}{{ /noparse }}
 
-Returns the value of your custom variable. Replace variable with the name you assigned it in the Control Panel.
+Retourne la valeur de votre variable personnalisée. Remplacez la variable avec le nom que vous lui attribué dans le Panneau de configuration.
