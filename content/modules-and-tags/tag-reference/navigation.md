@@ -1,6 +1,6 @@
 # Navigation Tags
 
-Le tag _navigation_  crée une liste de lien de navigation basé sur les groups de navigation dans le panneau de controlle dans CP &gt; Design &gt; Navigation.
+Le tag _navigation_  crée une liste de lien de navigation basé sur les groups de navigation dans le panneau de controle dans CP &gt; Design &gt; Navigation.
 
 ## navigation:links
 
@@ -116,7 +116,7 @@ Retourne:
 
 	<li class="first current"><a href="http://localhost/pyrocms/index.php">Home</a></li><li class="last"><a href="http://www.google.com">About Us</a></li>
 
-You can use the basic single-tag approach like this to output a chunk of HTML that renders indented source code and adds a custom class name to all link anchors.
+et
 
 	{{ noparse }}{{ navigation:links group="header" indent="tab" link-class="foo" }}{{ /noparse }}
 	
@@ -129,8 +129,8 @@ Retourne:
 		<a href="http://www.google.com" class="foo">About Us</a>
 	</li>
 	
-If you use nested links the default tag outputs the following html when menu items are arranged in a multilevel menu.
 
+Si vous utilisez des liens imbriqués le tag par défaut affichera le code HTML suivant lorsque les éléments de menu sont disposés dans un menu à plusieurs niveaux.
 
 	{{ noparse }}{{ navigation:links group="header" indent="tab" }}{{ /noparse }}
 	
@@ -161,7 +161,7 @@ Retourne:
 
 ### Tag Pair Usage
 
-If you'd like complete control over your navigation markup, you can use the links function as a tag pair:
+Si vous souhaitez un contrôle complet sur votre balisage de navigation, vous pouvez utiliser la fonction de liens comme une paire de balises:
 
 	{{ noparse }}&lt;ul>
 {{ navigation:links group="header" }}
@@ -179,7 +179,7 @@ If you'd like complete control over your navigation markup, you can use the link
 
 ### Variables
 
-The following variables are available to you in the tag pair:
+Les variables suivantes sont à votre disposition dans la paire de balise:
 
 <table cellpadding="0" cellspacing="0">
 	<thead>
@@ -214,7 +214,7 @@ The following variables are available to you in the tag pair:
 
 ### Advanced Options
 
-You can use a combination of params to output a chunk of HTML that shows a short paragraph of navigation, using `<p>` as list\_tag to wrap all items by disabling items_only and using the tag `<span>` to wrap each anchor link.
+Vous pouvez utiliser une combinaison de params pour sortir un morceau de code HTML qui affiche un court paragraphe de la navigation, using `<p>` as list\_tag to wrap all items by disabling items_only and using the tag `<span>` to wrap each anchor link.
 
 	{{ noparse }}{{ navigation:links group="header" tag="span" class="active" separator="|" list-tag="p" items-only="false" }}{{ /noparse }}
 	

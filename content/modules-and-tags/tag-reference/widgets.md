@@ -1,6 +1,6 @@
 # Widgets
 
-The _widgets_ tag displays widgets data as defined in the Content &gt; Widgets section of the control panel.
+Le tag _widgets_ affiche le données de widget définies dans la section Contenu  &gt; Widgets du panneau de controle.
 
 ## Tags
 
@@ -8,7 +8,7 @@ The _widgets_ tag displays widgets data as defined in the Content &gt; Widgets s
 
 	{{ noparse }}{{ widgets:area }}{{ /noparse }}
 
-Displays all widgets in a widget area.</p>
+Affiche tout les widgets d'une zone de widget.
 
 ### Attributes
 
@@ -29,7 +29,7 @@ Displays all widgets in a widget area.</p>
 	</tbody>
 </table>
 
-### Example
+### Exemple
 
 	{{ noparse }}{{ widgets:area slug="sidebar" }}{{ /noparse }}
 
@@ -37,7 +37,7 @@ Displays all widgets in a widget area.</p>
 
 	{{ noparse }}{{ widgets:instance }}{{ /noparse }}
 
-Displays a specific widget instance.
+Affiche une instance spécifique de widget.
 
 ### Attributes
 
@@ -58,6 +58,6 @@ Displays a specific widget instance.
 	</tbody>
 </table>
 
-### Example
+### Exemple
 
 	{{ noparse }}{{ widgets:instance id="5" }}{{ /noparse }}

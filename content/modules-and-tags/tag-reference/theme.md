@@ -1,16 +1,17 @@
 # Theme
 
-The _theme_ plugin gives you access to theme assets and partials. It is a critical and extremely useful plugin for building your sites with PyroCMS.
+Le plugin _theme_  vous donne accès au assets du thème (layout partial entre autres). C'estun point important dans la construction de module.
 
-The theme plugin's slug is __theme__, so it can be used like so:
+Le slug du thème du plugin est __theme__,  et il doit être appelé comme ça:
 
 	{{ noparse }}{{ theme:<em>function</em> }}{{ /noparse }}
 
-#### Functions
+#### Fonctions
 
 #### &#123;&#123; theme:options &#125;&#125; ####
 
-Displays an option for the current theme. To read more about this tag and its usage refer to the {{ link uri="/general/basics/themes" title="theme documentation" }}.</a>
+Afficher une option pour le thème courant. POur plus d'infos sur son usage referez vous à : 
+Displays an option for the current theme. To read more about this tag and its usage refer to the {{ link uri="/general/faire-des-themes-pyrocms/personnaliser-vos-themes" title="La documentation des thèmes" }}.</a>
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -30,7 +31,7 @@ Displays an option for the current theme. To read more about this tag and its us
 	</tbody>
 </table>
 
-**Example:**
+**Exemple:**
 
 	{{ noparse }}&#123;&#123; if theme:options:layout == 'full-width' &#125;&#125;{{ /noparse }}
 			
@@ -44,9 +45,9 @@ Displays an option for the current theme. To read more about this tag and its us
 
 #### {{ noparse }} {{ theme:partial }} {{ /noparse }} ####
 
-Loads partial from the current theme.
+Charge un layout partial du theme courant.
 
-**Attributes**
+**Attributs**
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
@@ -64,7 +65,7 @@ Loads partial from the current theme.
 	</tbody>
 </table>
 
-**Example:**
+**Exemple:**
 
 	{{ noparse }}&#123;&#123; theme:partial name="header" &#125;&#125;{{ /noparse }}
 
@@ -116,7 +117,7 @@ Generates a &lt;link&gt; to a css file in the current theme.
 
 #### {{ noparse }}{{ theme:image }}{{ /noparse }} ####
 
-Generates an &lt;img&gt; tag for an file in the current theme.
+Genere une balise &lt;img&gt; pour un fichier dans le thème courant.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -142,7 +143,7 @@ Generates an &lt;img&gt; tag for an file in the current theme.
 	</tbody>
 </table>
 
-**Example:**
+**Exemple:**
 	
 	{{ noparse }}&#123;&#123; theme:image file="fun.jpg" alt="Fun!" &#125;&#125;{{ /noparse }}
 
@@ -150,7 +151,7 @@ Generates an &lt;img&gt; tag for an file in the current theme.
 
 #### {{ noparse }}{{ theme:js }}{{ /noparse }} ####
 
-Generates a &lt;js&gt; script link for a javascript file in the current theme.
+Genère un lien script &lt;js&gt; du thème courant.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -170,7 +171,7 @@ Generates a &lt;js&gt; script link for a javascript file in the current theme.
 	</tbody>
 </table>
 
-**Example:**
+**Exemple:**
 	
 	{{ noparse }}&#123;&#123; theme:js file="extra.js" &#125;&#125;{{ /noparse }}
 	
@@ -178,7 +179,7 @@ Generates a &lt;js&gt; script link for a javascript file in the current theme.
 
 #### {{ noparse}}{{ theme:favicon }}{{ /noparse }} ####
 
-Generates a &lt;link&gt; tag for a favicon file in the current theme.
+Genere un lien pour un fichier favicon dans le thème courant.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -222,7 +223,7 @@ Generates a &lt;link&gt; tag for a favicon file in the current theme.
 	</tbody>
 </table>
 
-**Example:**
+**Exemple:**
 	
 	{{ noparse }}&#123;&#123; theme:favicon file="favicon.png" &#125;&#125;{{ /noparse }}
 
@@ -230,7 +231,7 @@ Generates a &lt;link&gt; tag for a favicon file in the current theme.
 
 #### &#123;&#123; theme:variables &#125;&#125; ####
 
-Sets or retrieves a variable for the theme of your choosing. Variables can be set in a layout and be used anywhere thereafter.
+Set ou retrouve une variable pour le thème de votre choix. Les variables peut etre initialisé dans un layout et utilisé ni'mporte ou.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -256,11 +257,11 @@ Sets or retrieves a variable for the theme of your choosing. Variables can be se
 	</tbody>
 </table>
 
-**Example (Variable Setting - nothing displayed):**
+**Exemple (Variable Setting - nothing displayed):**
 
 	{{ noparse }}{{ theme:variables name="day_or_night" value="day" }}{{ /noparse }}
 
-**Example (Variable Retrieval):**
+**Exemple (Variable Retrieval):**
 
 	{{ noparse }}{{ theme:variables name="day_or_night" }}{{ /noparse }}
 	{{ noparse }}day{{ /noparse }}
