@@ -1,6 +1,6 @@
-# Tags Lang 
+ï»¿# Tags Lang 
 
-Le Tag _lang_  permet d'accéder aux paramètres de langue pour l'utilisateur connecté. Si aucun utilisateur n'est connecté, la langue du site par défaut est utilisée.
+Le Tag _lang_  permet d'accÃ©der aux paramÃ¨tres de langue pour l'utilisateur connectÃ©. Si aucun utilisateur n'est connectÃ©, la langue du site par dÃ©faut est utilisÃ©e.
 
 ## lang:name
 

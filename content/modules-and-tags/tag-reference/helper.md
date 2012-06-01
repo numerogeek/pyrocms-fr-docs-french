@@ -1,13 +1,13 @@
-#  Tags Helper
+ï»¿#  Tags Helper
 
-Le plugin _helper_  regroupe de petites choses utiles, comme la mise en forme, les chaînes de langue, et le comptage.
+Le plugin _helper_  regroupe de petites choses utiles, comme la mise en forme, les chaÃ®nes de langue, et le comptage.
 
 
 ## helper:lang
 
 	{{ noparse }}{{ helper:lang }}{{ /noparse }}
 	
-Affiche une chaîne de langue de la langue actuelle.
+Affiche une chaÃ®ne de langue de la langue actuelle.
 
 ### Attributs
 
@@ -23,7 +23,7 @@ Affiche une chaîne de langue de la langue actuelle.
 			<td width="100">line</td>
 			<td width="100">None</td>
 			<td width="100">Yes</td>
-			<td>La clé du tableau de la chaîne de langue que vous souhaitez afficher.</td>
+			<td>La clÃ© du tableau de la chaÃ®ne de langue que vous souhaitez afficher.</td>
 		</tr>
 	</tbody>
 </table>
@@ -59,7 +59,7 @@ Affiche une configuration d'objet
 			<td width="100">item</td>
 			<td width="100">None</td>
 			<td width="100">Yes</td>
-			<td>La config de l'objet à afificher.</td>
+			<td>La config de l'objet Ã  afificher.</td>
 		</tr>
 	</tbody>
 </table>
@@ -77,7 +77,7 @@ Returns:
 
 	{{ noparse }}{{ helper:date }}{{ /noparse }}
 	
-Affiche une date dans le format défini dans le Panneau de control > Paramètres ou dans le format spécifié.
+Affiche une date dans le format dÃ©fini dans le Panneau de control > ParamÃ¨tres ou dans le format spÃ©cifiÃ©.
 
 ### Attributs
 
@@ -99,7 +99,7 @@ Affiche une date dans le format défini dans le Panneau de control > Paramètres o
 			<td width="100">timestamp</td>
 			<td width="100">Current time</td>
 			<td width="100">No</td>
-			<td>Passer une période pour formater une date dans le passé ou le futur.</td>
+			<td>Passer une pÃ©riode pour formater une date dans le passÃ© ou le futur.</td>
 		</tr>
 	</tbody>
 </table>
@@ -122,13 +122,13 @@ Returns:
 Returns:
 
 	Titre: Test Blog Post
-    Posté len: 31/01/2012
+    PostÃ© len: 31/01/2012
 
 ## helper:gravatar
 
 	{{ noparse }}{{ helper:gravatar }}{{ /noparse }}
 	
-Affiche un avatar lié à l'adresse courriel fournie au gravatar.com
+Affiche un avatar liÃ© Ã  l'adresse courriel fournie au gravatar.com
 
 ### Attributs
 
@@ -144,7 +144,7 @@ Affiche un avatar lié à l'adresse courriel fournie au gravatar.com
 			<td width="100">email</td>
 			<td width="100">None</td>
 			<td width="100">Yes</td>
-			<td>L'e-mail liée à l'avatar.</td>
+			<td>L'e-mail liÃ©e Ã  l'avatar.</td>
 		</tr>
 		<tr>
 			<td width="100">size</td>
@@ -175,7 +175,7 @@ Affiche un avatar lié à l'adresse courriel fournie au gravatar.com
 
 	{{ noparse }}{{ helper:count }}{{ /noparse }}
 	
-Compte le nombre d'items qui vont être ressortis dans le tag loop.
+Compte le nombre d'items qui vont Ãªtre ressortis dans le tag loop.
 
 ### Attributs
 
@@ -192,13 +192,13 @@ Compte le nombre d'items qui vont être ressortis dans le tag loop.
 			<td width="100">default</td>
 			<td width="100">No</td>
 			<td>
-			Un ID pour rendre le compteur unique si plusieurs compteurs sont utilisé sur le même site.</td>
+			Un ID pour rendre le compteur unique si plusieurs compteurs sont utilisÃ© sur le mÃªme site.</td>
 		</tr>
 		<tr>
 			<td width="100">start</td>
 			<td width="100">1</td>
 			<td width="100">No</td>
-			<td>Le numéro de départ du compteur.</td>
+			<td>Le numÃ©ro de dÃ©part du compteur.</td>
 		</tr>
 		<tr>
 			<td width="100">mode</td>
@@ -211,7 +211,7 @@ Compte le nombre d'items qui vont être ressortis dans le tag loop.
 			<td width="100">true</td>
 			<td width="100">No</td>
 			<td>
-			Affiche le compteur à chaque boucle ou incremente le compteur.</td>
+			Affiche le compteur Ã  chaque boucle ou incremente le compteur.</td>
 		</tr>
 	</tbody>
 </table>
@@ -228,7 +228,7 @@ Affiche:
      9 -- This is another title
 
 
-Vous pouvez ajouter un second compteur d'une page en définissant un identifiant unique:
+Vous pouvez ajouter un second compteur d'une page en dÃ©finissant un identifiant unique:
 {{ files:listing folder="foo" }}
     {{ helper:count identifier="files" return="false" }}
     {{ name }} -- {{ slug }}
@@ -241,13 +241,13 @@ You have {{ helper:show_count identifier="files" }} files. {{ /noparse }}
 A helper tag that works together with the above tag as shown in its last example. It can be placed anywhere on 
 the page after the counter and it will only display the value without incrementing the count.
 
-Un helper tag qui travaille en collaboration avec le tag ci-dessus comme en témoigne son dernier exemple. Il peut être placé n'importe où sur la page après le compteur et il n'affichera que la valeur sans incrémenter le compteur.
+Un helper tag qui travaille en collaboration avec le tag ci-dessus comme en tÃ©moigne son dernier exemple. Il peut Ãªtre placÃ© n'importe oÃ¹ sur la page aprÃ¨s le compteur et il n'affichera que la valeur sans incrÃ©menter le compteur.
 
 ## helper:[function]
 
 	{{ noparse }}{{ helper:[function] }}{{ /noparse }}
 	
-Exécute une fonction PHP liste blanche sur vos données. Les attributs sont transmis à la fonction comme arguments.
+ExÃ©cute une fonction PHP liste blanche sur vos donnÃ©es. Les attributs sont transmis Ã  la fonction comme arguments.
 
 
 ### Attributes

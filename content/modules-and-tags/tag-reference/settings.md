@@ -1,9 +1,9 @@
-# Settings Tags
+ï»¿# Settings Tags
 
-Le tag _settings_  permet d'acceder au réglages du sites.
+Le tag _settings_  permet d'acceder au rÃ©glages du sites.
 	{{ noparse }}{{ settings:<em>setting</em> }}{{ /noparse }}
 	
-La plupart des réglages retourne un chaine string, celle éditée dans le panneau de controle de pyroCMS.
+La plupart des rÃ©glages retourne un chaine string, celle Ã©ditÃ©e dans le panneau de controle de pyroCMS.
 quelques uns retourne des boolean 1 ou 0 
 
 ## Available Settings

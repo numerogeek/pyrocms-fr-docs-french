@@ -1,14 +1,14 @@
-# Session Tags
+ï»¿# Session Tags
 
-Le plugin _session_  vous donne la possibilité de définir et de lire les données de session.
+Le plugin _session_  vous donne la possibilitÃ© de dÃ©finir et de lire les donnÃ©es de session.
 
 ## session:data
 
 	{{ noparse }}{{ session:data }}{{ /noparse }}
 	
-Affiche ou définit un morceau de données de session.
+Affiche ou dÃ©finit un morceau de donnÃ©es de session.
 
-Si vous fournissez une *value*, elle fixera les données de session et de ne rien afficher, sinon, la valeur actuelle de *name* qui sera affiché.
+Si vous fournissez une *value*, elle fixera les donnÃ©es de session et de ne rien afficher, sinon, la valeur actuelle de *name* qui sera affichÃ©.
 
 ### Attributs
 
@@ -41,7 +41,7 @@ Si vous fournissez une *value*, elle fixera les données de session et de ne rien
 
 	{{ noparse }}{{ session:data name="color_preference" value="red" }}{{ /noparse }}
 
-#### Affichage des données
+#### Affichage des donnÃ©es
 
 	{{ noparse }}{{ session:data name="color_preference" }}{{ /noparse }}
 
@@ -51,9 +51,9 @@ Retourne:
 	
 ## session:flash	
 
-Identique à la fonction de données, mais utilise les données flash.
+Identique Ã  la fonction de donnÃ©es, mais utilise les donnÃ©es flash.
 
-Les données Flash sont des données qui sont disponible uniquement pour le chargement de la page suivante, puis elle sont détruites.
+Les donnÃ©es Flash sont des donnÃ©es qui sont disponible uniquement pour le chargement de la page suivante, puis elle sont dÃ©truites.
 
 ### Exemples
 
@@ -61,7 +61,7 @@ Les données Flash sont des données qui sont disponible uniquement pour le charge
 
 	{{ noparse }}{{ session:flash name="color_preference" value="blue" }}{{ /noparse }}
 
-#### Affichage des données
+#### Affichage des donnÃ©es
 
 	{{ noparse }}{{ session:data name="color_preference" }}{{ /noparse }}
 
@@ -73,13 +73,13 @@ Retourne:
 
 Displays a flashdata message.
 
-PyroCMS a des messages normalisés qui appartiennent à l'une des trois catégories:
+PyroCMS a des messages normalisÃ©s qui appartiennent Ã  l'une des trois catÃ©gories:
 
 * success
 * notice
 * error
 
-Chacun a un sens différent et, par défaut apparaît avec un nom de classe qui lui est associé.
+Chacun a un sens diffÃ©rent et, par dÃ©faut apparaÃ®t avec un nom de classe qui lui est associÃ©.
 
 ### Attributs
 
@@ -122,7 +122,7 @@ Retourne:
 
 	<div class="error">There was an error.</div>
 
-#### Classes personnalisées
+#### Classes personnalisÃ©es
 
 	{{ noparse }}{{ session:messages success="my_success_class" }}{{ /noparse }}
 
