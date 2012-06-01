@@ -175,9 +175,9 @@ Displays an avatar linked to the provided email address at gravatar.com
 
 	{{ noparse }}{{ helper:count }}{{ /noparse }}
 	
-Count the number of items being output in a tag loop
+Compte le nombre d'items qui vont être ressortis dans le tag loop.
 
-### Attributes
+### Attributs
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
@@ -191,25 +191,27 @@ Count the number of items being output in a tag loop
 			<td width="100">indentifier</td>
 			<td width="100">default</td>
 			<td width="100">No</td>
-			<td>An identifier to make each counter unique if using multiple counters on the same site.</td>
+			<td>
+			Un ID pour rendre le compteur unique si plusieurs compteurs sont utilisé sur le même site.</td>
 		</tr>
 		<tr>
 			<td width="100">start</td>
 			<td width="100">1</td>
 			<td width="100">No</td>
-			<td>The number to start counting at.</td>
+			<td>Le numéro de départ du compteur.</td>
 		</tr>
 		<tr>
 			<td width="100">mode</td>
 			<td width="100">add</td>
 			<td width="100">No</td>
-			<td>Whether to add or subtract from the start number.</td>
+			<td>Permet d'ajouter ou soustraire un nombre au compteur.</td>
 		</tr>
 		<tr>
 			<td width="100">return</td>
 			<td width="100">true</td>
 			<td width="100">No</td>
-			<td>Output the count result on each loop or just increment the counter silently.</td>
+			<td>
+			Affiche le compteur à chaque boucle ou incremente le compteur.</td>
 		</tr>
 	</tbody>
 </table>
