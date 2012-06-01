@@ -216,19 +216,19 @@ Compte le nombre d'items qui vont être ressortis dans le tag loop.
 	</tbody>
 </table>
 
-### Example 
+### Exemple 
 
     {{ noparse }}{{ blog:posts }}
         {{ helper:count mode="subtract" start="10" }} -- {{ title }}
 {{ /blog:posts }}
 
-Outputs:
+Affiche:
 
     10 -- This is an example title
      9 -- This is another title
 
 
-You can add a second counter to a page by setting a unique identifier:
+Vous pouvez ajouter un second compteur d'une page en définissant un identifiant unique:
 {{ files:listing folder="foo" }}
     {{ helper:count identifier="files" return="false" }}
     {{ name }} -- {{ slug }}
@@ -241,11 +241,14 @@ You have {{ helper:show_count identifier="files" }} files. {{ /noparse }}
 A helper tag that works together with the above tag as shown in its last example. It can be placed anywhere on 
 the page after the counter and it will only display the value without incrementing the count.
 
+Un helper tag qui travaille en collaboration avec le tag ci-dessus comme en témoigne son dernier exemple. Il peut être placé n'importe où sur la page après le compteur et il n'affichera que la valeur sans incrémenter le compteur.
+
 ## helper:[function]
 
 	{{ noparse }}{{ helper:[function] }}{{ /noparse }}
 	
-Executes a whitelisted PHP function on your data. Attributes are passed to the function as arguments.
+Exécute une fonction PHP liste blanche sur vos données. Les attributs sont transmis à la fonction comme arguments.
+
 
 ### Attributes
 
@@ -261,7 +264,7 @@ Executes a whitelisted PHP function on your data. Attributes are passed to the f
 			<td width="100">[wildcard]</td>
 			<td width="100">None</td>
 			<td width="100">Yes</td>
-			<td>You must pass the arguments that the function requires as attributes. The attribute name is discarded.</td>
+			<td>Vous devez passer des arguments que la fonction exige que des attributs. </td>
 		</tr>
 	</tbody>
 </table>
