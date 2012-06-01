@@ -1,14 +1,14 @@
-# Lang Tags
+# Tags Lang 
 
-The _lang_ tag allows access to the language settings for the current logged in user. If no user is logged in, the default site language is used.
+Le Tag _lang_  permet d'accéder aux paramètres de langue pour l'utilisateur connecté. Si aucun utilisateur n'est connecté, la langue du site par défaut est utilisée.
 
 ## lang:name
 
 	{{ noparse }}{{ lang:name }}{{ /noparse }}
 
-Returns the full name of the current language.
+Retourne le nom complet de la langue courante.
 
-### Example Output:
+### Exemple Output:
 
 	English
 
@@ -16,28 +16,28 @@ Returns the full name of the current language.
 
 	{{ noparse }}{{ lang:folder }}{{ /noparse }}
 
-Returns the folder anme of the current language.
+Retourne le nom du dossier de la langue courante.
 
-### Example Output:
+### Exemple Output:
 
 	english
 	
 ## lang:code
 
-Returns the language code of the current language.
+Retourne le code de langue du langage courant.
 
 	{{ noparse }}{{ lang:code }}{{ /noparse }}
 
-### Example Output:
+### Exemple Output:
 
 	en
 	
 ## lang:direction
 
-Returns the language direction of the current language.
+Retourne le sens des langues de la langue courante.
 
 	{{ noparse }}{{ lang:direction }}{{ /noparse }}
 
-### Example:
+### Exemple:
 
 	ltr
