@@ -1,5 +1,5 @@
-# Profiling Your Site
+# Profiler votre application
 
-You can activate the CodeIgniter profiler at any time if you are logged in and an admin by adding **?_debug** to the end of your URL:
+Vous pouvez activer le profileur de CodeIgniter à n'importe quel moment si vous êtes connecté en temps qu'administrateur en ajoutant **?_debug** à la fin de votre URL:
 
 	http://example.com/?_debug

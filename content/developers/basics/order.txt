@@ -1,5 +1,5 @@
-the-addons-directory | The Add-ons Directory
-modular-routing
-environments
-profiling | Profiling Your Site
-base-controllers
+the-addons-directory | Le dossier Addons
+modular-routing | Routage Modulaire
+environments | Environnements
+profiling | Profiler votre application
+base-controllers | Controlleurs de base

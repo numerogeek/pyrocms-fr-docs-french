@@ -1,14 +1,11 @@
-# Environments
+# Environnements
 
-Developers often desire different system behavior depending on whether
-an application is running in a development or production environment.
-For example, verbose error output is something that would be useful
-while developing an application, but it may also pose a security issue
-when "live".
+Les développeurs souhaitent disposer de comportements spécifiques en fonction de leurs besoins ou si leur application fonctionne dans un environnement de développement ou de production.
+Par exemple, l'affichage des différents messages d'erreur sont important pendant le cycle de développement, ces "informations confidentielles" ne doivent pas s'afficher lorsque le site est en "production" car elle peuvent entrainer des risques de sécurité.
 
-## The ENVIRONMENT Constant
+## La constante ENVIRONMENT
 
-By default, PyroCMS comes with the environment constant set to 'development'. At the top of index.php, you will see::
+Par défaut, PyroCMS est paramétrée avec la constante ENVIRONMENT définie à 'development'. Dans les permières lignes du fichier index.php, vous trouverez:
 
 	define('PYRO_DEVELOPMENT', 'development');
 	define('PYRO_STAGING', 'staging');
@@ -16,31 +13,23 @@ By default, PyroCMS comes with the environment constant set to 'development'. At
 
 	define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO_DEVELOPMENT));
 
-In addition to affecting some basic framework behavior (see the next
-section), you may use this constant in your own development to
-differentiate between which environment you are running in.
+En plus de donner des comportements spécifiques fonction de l'environnement (voir section suivante), vous pouvez utiliser cette constante pour voir les différences entre les différents environnements que vous utilisez.
 
-## Effects On Default Framework Behavior
+## Effets sur le comportement par défaut du Framework
 
-There are some places in PyroCMS where the <kbd>ENVIRONMENT</kbd> constant is used. This section describes how default framework behavior is affected.
+Dans certaines parties du système PyroCMS, la constante <kbd>ENVIRONMENT</kbd> est utilisée. Cette section décrit la façon dont le framework par défaut se comporte.
 
-### Error Reporting
+### Report d'erreurs
 
-Setting the <kbd>ENVIRONMENT</kbd> constant to a value of `'development'` will cause
-all PHP errors to be rendered to the browser when they occur.
-Conversely, setting the constant to `'production'` will disable all error
-output. Disabling error reporting in production is a good security.
+Définir la constante <kbd>ENVIRONMENT</kbd> à la valeur `'development'` entrainera l'affichage de l'ensemble des Erreurs PHP lorsqu'elles ont lieu. Passer la valeur de cette constante à `'production'` désactivera l'affichage de l'ensembles des erreurs. Désactiver l'affichage des erreurs PHP lorsqu'on est en production est une bonne pratique.
 
-### Configuration Files
+### Fichiers de configuration
 
-Optionally, you can have PyroCMS load environment-specific
-configuration files. This may be useful for managing things like
-differing API keys across multiple environments. This is described in
-more detail in the environment section of the [CodeIgniter Config
-Class](http://codeigniter.com/user_guide/libraries/config.html#environments) documentation.
+Optionnellement, PyroCMS vous permet de charger des fichiers de configuration spécifiques à un environnement. Ceci peut être utile, par exemple pour gérer des clés API en fonction de l'environnement. Cette partie est décrite de manière détaillée dans la partie Environnements de la section [CodeIgniter Config Class](http://codeigniter.com/user_guide/libraries/config.html#environments).
 
-## Setting $\_SERVER['PYRO\_ENV']
+## Paramétrer $\_SERVER['PYRO\_ENV']
 
-The easiest way to change ENVIONMENTS is to make your servers aware of what envionment PyroCMS expects them to be. You can do this with a nice interface if you use a Platform-as-a-Service like Pagoda Box or PHP Fog for your hosting, but can be a little more tricky for others. Apache supports a SetEnv via [mod\_env](http://httpd.apache.org/docs/2.2/mod/mod_env.html) and this can be done in your main Apache config, or you can open .htaccess in the root folder and remove the **`#`** from this line:
+Vous pouvez faire cela simplement si vous utilisez une interface du type PagodaBox ou PHP Fog, ceci peut être plus complexe pour les autres types d'environnement.
+Apache supporte la variable setEnv via [mod\_env](http://httpd.apache.org/docs/2.2/mod/mod_env.html), ceci peut être fait via votre fichier principal de configuration Apache ou plus simplement en éditant le fichier .htaccess situé à la racine du site, il suffit de supprimer le **`#`** de cette ligne&nbsp;:
 
 	SetEnv PYRO_ENV production
