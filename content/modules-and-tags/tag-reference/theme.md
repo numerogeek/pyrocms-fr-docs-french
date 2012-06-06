@@ -1,8 +1,8 @@
-# Theme
+ï»¿# Theme
 
-Le plugin _theme_  vous donne accès au assets du thème (layout partial entre autres). C'estun point important dans la construction de module.
+Le plugin _theme_  vous donne accÃ¨s au assets du thÃ¨me (layout partial entre autres). C'estun point important dans la construction de module.
 
-Le slug du thème du plugin est __theme__,  et il doit être appelé comme ça:
+Le slug du thÃ¨me du plugin est __theme__,  et il doit Ãªtre appelÃ© comme Ã§a:
 
 	{{ noparse }}{{ theme:<em>function</em> }}{{ /noparse }}
 
@@ -10,8 +10,8 @@ Le slug du thème du plugin est __theme__,  et il doit être appelé comme ça:
 
 #### &#123;&#123; theme:options &#125;&#125; ####
 
-Afficher une option pour le thème courant. POur plus d'infos sur son usage referez vous à : 
-Displays an option for the current theme. To read more about this tag and its usage refer to the {{ link uri="/general/faire-des-themes-pyrocms/personnaliser-vos-themes" title="La documentation des thèmes" }}.</a>
+Afficher une option pour le thÃ¨me courant. POur plus d'infos sur son usage referez vous Ã  : 
+Displays an option for the current theme. To read more about this tag and its usage refer to the {{ link uri="/general/faire-des-themes-pyrocms/personnaliser-vos-themes" title="La documentation des thÃ¨mes" }}.</a>
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -117,7 +117,7 @@ Generates a &lt;link&gt; to a css file in the current theme.
 
 #### {{ noparse }}{{ theme:image }}{{ /noparse }} ####
 
-Genere une balise &lt;img&gt; pour un fichier dans le thème courant.
+Genere une balise &lt;img&gt; pour un fichier dans le thÃ¨me courant.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -151,7 +151,7 @@ Genere une balise &lt;img&gt; pour un fichier dans le thème courant.
 
 #### {{ noparse }}{{ theme:js }}{{ /noparse }} ####
 
-Genère un lien script &lt;js&gt; du thème courant.
+GenÃ¨re un lien script &lt;js&gt; du thÃ¨me courant.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -179,7 +179,7 @@ Genère un lien script &lt;js&gt; du thème courant.
 
 #### {{ noparse}}{{ theme:favicon }}{{ /noparse }} ####
 
-Genere un lien pour un fichier favicon dans le thème courant.
+Genere un lien pour un fichier favicon dans le thÃ¨me courant.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">
@@ -231,7 +231,7 @@ Genere un lien pour un fichier favicon dans le thème courant.
 
 #### &#123;&#123; theme:variables &#125;&#125; ####
 
-Set ou retrouve une variable pour le thème de votre choix. Les variables peut etre initialisé dans un layout et utilisé ni'mporte ou.
+Set ou retrouve une variable pour le thÃ¨me de votre choix. Les variables peut etre initialisÃ© dans un layout et utilisÃ© ni'mporte ou.
 
 **Attributes**
 <table cellpadding="0" cellspacing="0">

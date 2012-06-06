@@ -1,6 +1,6 @@
-# Widgets
+ï»¿# Widgets
 
-Le tag _widgets_ affiche le données de widget définies dans la section Contenu  &gt; Widgets du panneau de controle.
+Le tag _widgets_ affiche le donnÃ©es de widget dÃ©finies dans la section Contenu  &gt; Widgets du panneau de controle.
 
 ## Tags
 
@@ -37,7 +37,7 @@ Affiche tout les widgets d'une zone de widget.
 
 	{{ noparse }}{{ widgets:instance }}{{ /noparse }}
 
-Affiche une instance spécifique de widget.
+Affiche une instance spÃ©cifique de widget.
 
 ### Attributes
 

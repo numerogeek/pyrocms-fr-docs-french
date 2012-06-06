@@ -1,12 +1,12 @@
-# Tags user
+ï»¿# Tags user
 
-Le plugin <em>user</em> vous permet d'accéder aux données des utilisateurs et la logique.
+Le plugin <em>user</em> vous permet d'accÃ©der aux donnÃ©es des utilisateurs et la logique.
 
 ## user:logged_in
 
 	{{ noparse }}{{ user:logged_in }}{{ /noparse }}
 
-Vérifie si l'utilisateur est connecté ou non. Peut être utilisé comme un tag pair pour limiter l'affichage de certain code d'utilisateurs enregistrés, ou un tag unique qui renvoie TRUE ou FALSE selon que l'utilisateur est connecté po
+VÃ©rifie si l'utilisateur est connectÃ© ou non. Peut Ãªtre utilisÃ© comme un tag pair pour limiter l'affichage de certain code d'utilisateurs enregistrÃ©s, ou un tag unique qui renvoie TRUE ou FALSE selon que l'utilisateur est connectÃ© po
 
 ### Attributs
 
@@ -22,7 +22,7 @@ Vérifie si l'utilisateur est connecté ou non. Peut être utilisé comme un tag pai
 			<td width="100">group</td>
 			<td width="100">None</td>
 			<td width="100">Non</td>
-			<td>Group slug. Vérifie si un utilisateur est non seulement connecté, mais aussi un membre du groupe spécifié.</td>
+			<td>Group slug. VÃ©rifie si un utilisateur est non seulement connectÃ©, mais aussi un membre du groupe spÃ©cifiÃ©.</td>
 		</tr>
 	</tbody>
 </table>
@@ -37,23 +37,23 @@ Vérifie si l'utilisateur est connecté ou non. Peut être utilisé comme un tag pai
 
 	{{ noparse }}{{ user:not_logged_in }}{{ /noparse }}
 
-Identique à la fonction précédente, mais au lieu vérifier si un utilisateur n'est pas connecté. Prend également le paramètre _group_. Doivent être utilisés dans un tag pair.
+Identique Ã  la fonction prÃ©cÃ©dente, mais au lieu vÃ©rifier si un utilisateur n'est pas connectÃ©. Prend Ã©galement le paramÃ¨tre _group_. Doivent Ãªtre utilisÃ©s dans un tag pair.
 
 ## Variables simples de profil utilisateur
 
-Le plugin user vous donne également accès à des variables des différents users utilisant la syntaxe suivante:
+Le plugin user vous donne Ã©galement accÃ¨s Ã  des variables des diffÃ©rents users utilisant la syntaxe suivante:
 
 	{{ noparse }}{{ user:<em>variable</em> }}{{ /noparse }}
 
-Ces appels par défaut au user connecté, mais vous pouvez également spécifier l'ID d'un user avec le paramètre <em>user_id</em>:
+Ces appels par dÃ©faut au user connectÃ©, mais vous pouvez Ã©galement spÃ©cifier l'ID d'un user avec le paramÃ¨tre <em>user_id</em>:
 
 	{{ noparse }}{{ user:<em>variable</em> user_id="4" }}{{ /noparse }}
 
-Si vous utilisez des champs de flux personnalisés qui retournent plusieurs enregistrements, vous pouvez accéder aux valeurs à l'intérieur comme des tag pairs:
+Si vous utilisez des champs de flux personnalisÃ©s qui retournent plusieurs enregistrements, vous pouvez accÃ©der aux valeurs Ã  l'intÃ©rieur comme des tag pairs:
 
 	{{ noparse }}{{ user:country }}{{ name }} {{ /user:country }}{{ /noparse }}
 
-Voici un tableau de variables qui sont codées en dur dans le système et toujours disponible.
+Voici un tableau de variables qui sont codÃ©es en dur dans le systÃ¨me et toujours disponible.
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
@@ -118,7 +118,7 @@ Voici un tableau de variables qui sont codées en dur dans le système et toujours
 
 ## user:profile
 
-Mis à part l'accès à des champs du profil utilisateur individuel, vous pouvez également y accéder en utilisant la fonction de profil. A l'intérieur du tag pair, vous pouvez accéder à l'une des variables de profil utilisateur, y compris vos champs personnalisés.
+Mis Ã  part l'accÃ¨s Ã  des champs du profil utilisateur individuel, vous pouvez Ã©galement y accÃ©der en utilisant la fonction de profil. A l'intÃ©rieur du tag pair, vous pouvez accÃ©der Ã  l'une des variables de profil utilisateur, y compris vos champs personnalisÃ©s.
 
 	{{ noparse }}{{ user:profile }}
 
@@ -130,13 +130,13 @@ Mis à part l'accès à des champs du profil utilisateur individuel, vous pouvez ég
 
 {{ /user:profile }}{{ /noparse }}
 
-La balise de profil prend également une valeur facultative user_id.
+La balise de profil prend Ã©galement une valeur facultative user_id.
 
 	{{ noparse }}{{ user:profile user_id="4" }}{{ /noparse }}
 
 ## user:profile\_fields
 
-Dans le cas où vous voulez juste vous montrer toutes les données de profil utilisateur dans une liste, vous pouvez le faire avec cette fonction. Chaque élément de données utilisateur peuvent être accessibles via les variables suivantes:
+Dans le cas oÃ¹ vous voulez juste vous montrer toutes les donnÃ©es de profil utilisateur dans une liste, vous pouvez le faire avec cette fonction. Chaque Ã©lÃ©ment de donnÃ©es utilisateur peuvent Ãªtre accessibles via les variables suivantes:
 
 <table>
 	<tr>

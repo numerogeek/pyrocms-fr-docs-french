@@ -1,12 +1,12 @@
-# Navigation Tags
+ï»¿# Navigation Tags
 
-Le tag _navigation_  crée une liste de lien de navigation basé sur les groups de navigation dans le panneau de controle dans CP &gt; Design &gt; Navigation.
+Le tag _navigation_  crÃ©e une liste de lien de navigation basÃ© sur les groups de navigation dans le panneau de controle dans CP &gt; Design &gt; Navigation.
 
 ## navigation:links
 
 	{{ noparse }}{{ navigation:links }}{{ /noparse }}
 
-Crée une list de lien pour un groupe.
+CrÃ©e une list de lien pour un groupe.
 
 ### Attributes
 
@@ -108,7 +108,7 @@ Crée une list de lien pour un groupe.
 ### Usage Tag simple
 
 Vous pouvez utiliser une approche simple pour afficher un morceau de HTML. 
-Cela va appliquer les noms de classe au <kdb>&lt;li&gt;</kdb> (par défaut) et les balises <kdb>&lt;a&gt;</kdb> pour les ancres.
+Cela va appliquer les noms de classe au <kdb>&lt;li&gt;</kdb> (par dÃ©faut) et les balises <kdb>&lt;a&gt;</kdb> pour les ancres.
 
 	{{ noparse }}{{ navigation:links group="header" }}{{ /noparse }}
 	
@@ -130,7 +130,7 @@ Retourne:
 	</li>
 	
 
-Si vous utilisez des liens imbriqués le tag par défaut affichera le code HTML suivant lorsque les éléments de menu sont disposés dans un menu à plusieurs niveaux.
+Si vous utilisez des liens imbriquÃ©s le tag par dÃ©faut affichera le code HTML suivant lorsque les Ã©lÃ©ments de menu sont disposÃ©s dans un menu Ã  plusieurs niveaux.
 
 	{{ noparse }}{{ navigation:links group="header" indent="tab" }}{{ /noparse }}
 	
@@ -161,7 +161,7 @@ Retourne:
 
 ### Tag Pair Usage
 
-Si vous souhaitez un contrôle complet sur votre balisage de navigation, vous pouvez utiliser la fonction de liens comme une paire de balises:
+Si vous souhaitez un contrÃ´le complet sur votre balisage de navigation, vous pouvez utiliser la fonction de liens comme une paire de balises:
 
 	{{ noparse }}&lt;ul>
 {{ navigation:links group="header" }}
@@ -179,7 +179,7 @@ Si vous souhaitez un contrôle complet sur votre balisage de navigation, vous pou
 
 ### Variables
 
-Les variables suivantes sont à votre disposition dans la paire de balise:
+Les variables suivantes sont Ã  votre disposition dans la paire de balise:
 
 <table cellpadding="0" cellspacing="0">
 	<thead>

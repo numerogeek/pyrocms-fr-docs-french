@@ -1,6 +1,6 @@
-# Tags Galleries
+ï»¿# Tags Galleries
 
-**Note:** Sur PyroCMS 2.1, Le module *Galleries* n'est plus inclus dans le code du noyau PyroCMS, même si elle peut être téléchargé gratuitement à partir du [store](http://www.pyrocms.com/store/details/galleries).
+**Note:** Sur PyroCMS 2.1, Le module *Galleries* n'est plus inclus dans le code du noyau PyroCMS, mÃªme si elle peut Ãªtre tÃ©lÃ©chargÃ© gratuitement Ã  partir du [store](http://www.pyrocms.com/store/details/galleries).
 
 Le Tag <em>galleries</em> affiches les images d'une gallerie.
 
@@ -72,7 +72,7 @@ Affiche toutes les images de toute la galerie ci.
 
 	{{ noparse }}{{&nbsp;galleries:exists }}{{ /noparse }}
 
-Vérifie que la galerie existe.
+VÃ©rifie que la galerie existe.
 
 ### Attributs
 
