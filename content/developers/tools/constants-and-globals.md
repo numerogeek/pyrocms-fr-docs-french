@@ -1,16 +1,16 @@
-# Constants and Globals
+# Constantes et Globales
 
-A number of constants and properties are made available across PyroCMS.
+Un nombre de constantes et de propriétés sont accessibles sous PyroCMS.
 
-## PHP Constants
+## Constantes PHP
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
-				Outputs</th>
+				Sorties</th>
 			<th>
 				Description</th>
 		</tr>
@@ -20,7 +20,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				addons/default/</td>
 			<td>
-				The path to third-party addons.&nbsp;</td>
+				le chemin au dossier Extensions Utilisateur.&nbsp;</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -28,7 +28,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				system/pyrocms/</td>
 			<td>
-				The path to the application folders.</td>
+				Le chemin au dossier application.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -36,7 +36,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				/system/pyrocms/</td>
 			<td>
-				The path to the application folders but with a leading slash.</td>
+				Le chemin vers le dossier application avec un slash de début.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -44,7 +44,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				http://site.com/</td>
 			<td>
-				The equivalent to CodeIgniter&#39;s base_url(). Does not change with or without mod_rewrite.</td>
+				L'équivalent de la fonction base_url() pour CodeIgniter. Reste la même avec ou sans mod_rewrite.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -52,15 +52,15 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				/</td>
 			<td>
-				The relative root.</td>
+				La Racine relative.</td>
 		</tr>
 		<tr>
 			<td width="100">
 				CURRENT_LANGUAGE</td>
 			<td>
-				en</td>
+				fr</td>
 			<td>
-				Outputs the two digit language code of the currently selected language.</td>
+				Affiche le code de langue du langage actuellement sélectionné..</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -68,7 +68,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				/var/www/site_folder/</td>
 			<td>
-				The path to index.php</td>
+				Le chemin vers index.php</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -76,7 +76,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				pyrocms</td>
 			<td>
-				Outputs the slug of the admin theme that is currently in use.</td>
+				Affiche le slug du thème d'administration qui est actuellement utilisé.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -84,7 +84,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				addons/shared_addons/</td>
 			<td>
-				The path to add-ons that are shared between all sites. Add-ons are also available to the default site in the free version.</td>
+				Le chemin vers les dossiers addons qui sont partagés parmis tout les sites. Les extensions sont également disponibles au site par défaut dans la version gratuite.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -92,7 +92,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				default</td>
 			<td>
-				Can be used to find which site is currently running. Cannot be used inside module install or uninstall logic as it will break in multi-site. Use $this-&gt;site_ref there for complete compatibility.</td>
+				Peut être utilisé pour trouver quel site fonctionne actuellement. Ne peut pas être utilisé pour l'installation ou la désinstallation ceci ne fonctionnerait pas pour la version professionnelle. Utilisez $this-&gt;site_ref ici pour assurer une compatibilité complète.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -100,20 +100,20 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				uploads/default/</td>
 			<td>
-				The path to the current site&#39;s uploads. Cannot be used inside module install or uninstall logic as it will break in multi-site. Use $this-&gt;upload_path there for complete compatibility.</td>
+				Le chemin vers le dossier uploads. Ne peut pas être utilisé pour l'installation ou la désinstallation ceci ne fonctionnerait pas pour la version professionnelle. Utilisez $this-&gt;upload_path ici pour assurer une compatibilité complète.</td>
 		</tr>
 	</tbody>
 </table>
 
-## PHP Global Variables
+## Variables Globales PHP
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
-				Outputs</th>
+				Sortie</th>
 			<th>
 				Description</th>
 		</tr>
@@ -123,7 +123,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				admin, blog, rss, etc</td>
 			<td>
-				The name of the current controller.</td>
+				Le nom du contrôleur courant.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -131,7 +131,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				index, create, etc</td>
 			<td>
-				The name of the current method.</td>
+				Le nom de la méthode courante.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -139,7 +139,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				blog</td>
 			<td>
-				The slug of the current module or an empty string if the current page is the dashboard, login, etc.</td>
+				Le slug du module courant ou une chaîne de caractère vide si la page courante est une page du panneau d'administration, fonctions d'authentification, etc.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -147,23 +147,23 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				array</td>
 			<td>
-				A list of modules that the user is allowed to access. If roles are defined for a module it will contain an object of role permissions.</td>
+				La liste des modules que l'utilisateur peut consulter. Si des rôles sont définis pour un module il contiendrons des permissions paramétrables.</td>
 		</tr>
 		<tr>
 			<td width="100">
 				$this-&gt;current_user</td>
 			<td>
-				an object</td>
+				un objet</td>
 			<td>
-				All user information (groups, users, and profiles tables) of the current user or an empty array if not logged in.</td>
+				Toutes les informations utilisateurs (groupes, utilisateurs et profils) de l'utilisateur courant ou un tableau vide (empty array) si aucun utilisateur n'est connecté.</td>
 		</tr>
 		<tr>
 			<td width="100">
 				$this-&gt;theme_options</td>
 			<td>
-				an object</td>
+				un objet</td>
 			<td>
-				All theme options for the current admin theme. Can be used like $this-&gt;theme_options-&gt;news_feed. Professional version only.</td>
+				Toutes les options du Thème pour le Thème d'administration. Disponible uniquement sur la version professionnelle.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -171,7 +171,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				default</td>
 			<td>
-				<strong>This is available only in a module&#39;s details.php file.</strong> Elsewhere in your module use SITE_REF</td>
+				<strong>Disponible uniquement dans un fichier details.php d'un module.</strong> Dans vos modules utilisez la constante PHP SITE_REF</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -179,22 +179,22 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				uploads/default/</td>
 			<td>
-				<strong>This is available only in a module&#39;s details.php file.</strong> Elsewhere in your module use UPLOAD_PATH</td>
+				<strong>Disponible uniquement dans un fichier details.php d'un module.</strong> Dans vos modules utilisez la constante PHP UPLOAD_PATH</td>
 		</tr>
 	</tbody>
 </table>
 
-## JavaScript Global Variables
+## Variables Globales JavaScript
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
 			<th>
-				Name</th>
+				Nom</th>
 			<th>
-				Outputs</th>
+				Sortie</th>
 			<th>
-				Available</th>
+				Disponible</th>
 			<th>
 				Description</th>
 		</tr>
@@ -204,9 +204,9 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				/system/pyrocms/</td>
 			<td>
-				admin and front-end</td>
+				administration et site</td>
 			<td>
-				The path to the system folder</td>
+				Le chemin vers le dossier système</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -214,9 +214,9 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				/</td>
 			<td>
-				admin and front-end</td>
+				administration et site</td>
 			<td>
-				The relative root.</td>
+				Le racine relative.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -226,7 +226,7 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				admin</td>
 			<td>
-				The site address. Unaffected by mod_rewrite.</td>
+				L'adresse du site. N'est pas modifié par mod_rewrite.</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -234,29 +234,29 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				Un-named Website</td>
 			<td>
-				admin</td>
+				administration</td>
 			<td>
-				The site name.</td>
+				Le nom du site.</td>
 		</tr>
 		<tr>
 			<td width="100">
 				DIALOG_MESSAGE</td>
 			<td>
-				Are you sure you want to delete this? It cannot be undone.</td>
+				Etes-vous sûr de bien vouloir supprimer ceci&nbsp;? Vous ne pourrez plus revenir en arrière.</td>
 			<td>
-				admin</td>
+				administration</td>
 			<td>
-				The delete warning message in the current language. If you add your own message to the button&#39;s title attribute it will be used instead.</td>
+				Le message de suppression dans la langue courante. Si vous ajoutez votre propre message. Si vous ajouter un message personnalisé au titre du bouton, il sera utilisé à la place.</td>
 		</tr>
 		<tr>
 			<td width="100">
 				SITE_URL</td>
 			<td>
-				http://site.com/ or http://site.com/index.php/</td>
+				http://site.com/ où http://site.com/index.php/</td>
 			<td>
-				admin</td>
+				administration</td>
 			<td>
-				Changes depending on mod_rewrite settings. Identical to CodeIgniter&#39;s site_url()</td>
+				Change en fonction des paramètres mod_rewrite. Identique à la fonction CodeIgniter site_url()</td>
 		</tr>
 		<tr>
 			<td width="100">
@@ -264,9 +264,9 @@ A number of constants and properties are made available across PyroCMS.
 			<td>
 				uploads/default/</td>
 			<td>
-				admin</td>
+				administration</td>
 			<td>
-				The path to the current site&#39;s uploaded files.</td>
+				Le chemin vers les fichier téléchargés sur le site courant.</td>
 		</tr>
 	</tbody>
 </table>
