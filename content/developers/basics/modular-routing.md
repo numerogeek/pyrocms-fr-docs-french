@@ -6,7 +6,7 @@ Par exemple&nbsp;:
 
 	/artists/top-10
 	
-Cette URL signifiera à PyrCMS de charger le fichier /addons/modules/artists/config/routes.php.
+Cette URL signifiera à PyroCMS de charger le fichier /addons/modules/artists/config/routes.php.
 
 	/top-10-artists
 
