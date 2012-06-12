@@ -1,55 +1,55 @@
-# PyroCMS Documentation
+# Documentation PyroCMS
 
-This repo is home to the PyroCMS documentation source. 
+Ce dépôt est la page d'accueil de la Documentation PyroCMS. 
 
 * [PyroCMS Documentation](http://pyrocms.com/docs)
 
-## Doc Status
+## Statut de la documentation
 
-Documentation is tagged and released with each stable release, so when 2.1.1 comes out the "2.1" branch will be updated to that latest version. Development documentation is also kept in here, so currently the "2.2" documentation is still a work in progress.
+La Documentation est taggée et générée après la sortie de chaque version stable, quand la version 2.1.1 arrive la branche "2.1"  est mise à jour à la dernière version. Les documents de Développement sont également enregistrés ici, actuellement la version "2.2" existe en anglais mais nécessite des contributeurs et des contributions.
 
-## Contributing to the Docs
+## Contribuer la Documentation
 
-To contribute to the PyroCMS docs, fork this repo to your local environment. The PyroCMS docs run off of [Fizl](https://github.com/parse19/Fizl), which is a flat-file based CMS written in CodeIgniter. It doesn't need a database to run, so you should be able to load up the docs easily.
+Pour contribuer à la documentation PyroCMS, il faut forker le dépôt dans votre environnement local. La documentation PyroCMS fonctionne avec Fizl[Fizl](https://github.com/parse19/Fizl), qui est un CMS basé sur fichiers écrit avec CodeIgniter. Il ne nécessite pas de base de données pour fonctionner, vous pouvez ainsi facilement charger la documentation.
 
-The actual doc files are contained in the **content** folder, and the folder structure mirrors the URL structure. Each page is a markdown file, so for instance, the **Constants and Globals** file is named **constants-and-globals.md**.
+Les fichiers de la documentation actuelle sont contenus dans le dossier **content**, la structure des dossiers représente la structure des URL. Chaque page est un fichier markdown, par exemple, le fichier **Constantes et Globales** est nommé **constantes-et-globales.md**.
 
-## Helping Grow the Docs
+## Aider à mettre à jour la Documentation
 
-Right now the following are high needs areas for the docs:
+Les parties de la documentation à améliorer sont nombreuses. Certaines sont prioritaires&nbsp;:
 
-* Spotting and fixing broken internal doc links
-* Porting over tag reference pages
-* Documenting modules
-* Checking docs for spelling, grammar, and clarity
+* Détecter et supprimer les liens internes cassés
+* Vérifier les tags des différentes pages
+* Documenter les modules
+* Effectuer les corrections orthographique etgrammaticales. Vérifier la clareté des phrases
 
-If you have doc feedback, please feel free to use the GitHub inline code commenter.
+Si vous avez des remarques à nous faire, merci de laisser vos commentaires grâce à GitHub inline code commenter.
 
-## Docs Style Guide
+## Guide des Styles pour la Documentation
 
 ### Format
 
-All doc files must be .md files and written in Markdown (except for HTML tables which can be written in plain HTML).
+Tout les fichiers doivent être des fichiers inscriptibles .md en Markdow (à l'exception des tableaux HTML qui peuvent être écrits en texte plein HTML).
 
-Internal doc links should be formatting using Fizl's link plugin. Here's an example:
+Les liens internes à la documentation doivent être formatés en utilisant le plugin de Fizl Lien. Par exemple :
 
-	{{ link uri="general/basics/organization" title="Organization" }}
+	{{ link uri="general/basics/organisation" title="Organisation" }}
 	
-The yellow "tip" boxes (as seen on such pages as the Lex Parser developer guide) should follow this HTML structure:
+La boite info Jaune (as seen on such pages as the Lex Parser developer guide) doit suivre la structure HTML suivante:
 
-	<div class="tip"><strong>Note:</strong> Content Here</div>
+	<div class="tip"><strong>Note&nbsp;:</strong> Votre Contenu ici</div>
 	
-These boxes should be used when there is important information the user should take note of that may get lost in a general paragraph.
+Ces boites doivent êtres utilisées pour afficher des informations importantes que l'utilisateur doit connaitre.
 
-### Organization
+### Organisation
 
-The docs are organized into four sections:
+La Documentation est articulée autour de 4 sections:
 
-* General Info
+* Généralités
 * Modules & Tags
-* Developers
+* Développeurs
 * PyroCMS Pro
 
-Within these sections are sub sections separated into columns.
+Ces sections contiennent des sous-sections séparés en colonnes.
 
-If you are creating a new page, it should fit reasonably within one of the existing sections. If you think we need a new section, or want to suggest some organizational changes, please email [adam@pyrocms.com](mailto:adam@pyrocms.com).
+Si vous crééz une nouvelle page, elle devrait normalement trouver place dans une section existante.. Si vous pensez que nous devons ajouter une nouvelle section ou si vous avez des suggestions d'organisation merci de nous contacter par email [contact@pyrocms.fr](mailto:contact@pyrocms.fr).
