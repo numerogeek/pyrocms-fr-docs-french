@@ -2,4 +2,4 @@ the-addons-directory | Le dossier Addons
 modular-routing | Routage Modulaire
 environments | Environnements
 profiling | Profiler votre application
-base-controllers | Controlleurs de base
+base-controllers | Contrôleurs de base

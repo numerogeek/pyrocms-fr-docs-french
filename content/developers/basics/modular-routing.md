@@ -1,15 +1,15 @@
-# Modular Routing
+# Routage Modulaire (Modular Routing)
 
-Routing is a powerful tool and allows developers to create a custom URL which does not have to directly match the modules/[controller/]method/parameter pattern of standard modules. Route configuration files can be placed into each module to help route URL's within a module, but PyroCMS only knows to use a routes.php from a module if the module name is the first URI segment.
+Le Routage est un outil puissant qui permet au développeur de créér des URL personnalisées qui ne doivent pas nécessairement répondre aux standards modules/[contrôleur/]méthode/paramètres. Les fichiers de configuration Route peuvent être ajouté dans chaque module pour gérer les URL au sein d'un module. Cependant PyroCMS ne sait utiliser le fichier routes.php d'un module donné que si le nom de ce module est égal au premier ségment de l'URI.
 
-For example:
+Par exemple&nbsp;:
 
 	/artists/top-10
 	
-This URL will tell PyroCMS to load /addons/modules/artists/config/routes.php.
+Cette URL signifiera à PyrCMS de charger le fichier /addons/modules/artists/config/routes.php.
 
 	/top-10-artists
 
-Trying to route this URL does not suggest which module is in use, so the route would need to be in **system/pyrocms/config/routes.php**.
+Essayer d'acheminer cette URL ne suggère pas quel module est à utilise, la route doit alors être spécifiée dans **system/pyrocms/config/routes.php**.
 
-Editing the main PyroCMS main route file may seem like a bad idea, but if it is backed up along with config.php and database.php when upgraded there is no downside here. Routing is done this way because if every single routes.php was loaded in every module before each page load then performance would be heavily effected.
+Editer le fichier principal route de PyroCMS peut être considéré comme une mauvaise pratique mais si avant d'effectuer une mise à jour vous faites la sauvegarde du fichier routes.php en même temps que config.php et database.php vous ne rencontrerez pas de régressions en cas de mise à jour. Le routage est effectué de cette façon, car si l'application comprends de nombreux modules possédant leur propre fichier routes.php, il faut tous les charger, ceux qui peut être lourd de conséquences en terme de performances.

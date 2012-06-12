@@ -1,8 +1,8 @@
-# The Add-ons Directory
+# Le dossier Addons
 
-The **/addons** directory is the main location for all custom code and is simply a CodeIgniter **"Application Package"**. The main purpose of this folder is to store all third-party or custom modules, widgets and plugins but it can also be used to share custom config, libraries, helpers and language files between your addons.
+Le dossier **/addons** est la destination de tout vos codes personnalisés il équivaut au dossier  **"Application Package"** de CodeIgniter. L'objectif de ce dossier est de contenir l'ensemble des développements tiers comme les modules, widgets ou plugins. Il peut être utilisé pour mutualiser des configurations, librairies, helpers et fichiers de langues commun à vos différents développements.
 
-Below is a full list of folders you can put in the addons directory:
+Ci-dessous la liste complète des dossiers que vous pouvez ajout dans le dossier **/addons**&nbsp;:
 
 * config/
 * helpers/
@@ -16,8 +16,8 @@ Below is a full list of folders you can put in the addons directory:
 
 All of your custom code should fit into one of those folders and should be developed in the same way as you normally would in a CodeIgniter application.
 
-An important note here is that you cannot extend helpers or libraries found in the system/ directory (neither system/pyrocms/ or system/codeigniter) as the <a href="http://codeigniter.com/user_guide/libraries/loader.html" target="_blank">CodeIgniter Loader class</a> does not know to look there. This is a "limitation" of CodeIgniter itself, so if you need to extend core files you will need to either extend in system/pyrocms or extend there. If you do this make sure you are tracking your changes with Git as otherwise you will end up loosing your modifcations next time you upgrade PyroCMS.
+Un point important à noter cependant, vous ne pouvez pas étendre les helpers ou librairies situées dans le dossier ** system/** (ni system/cms ni system/codeigniter). ceci est du au fonctionnement de la classe <a href="http://codeigniter.com/user_guide/libraries/loader.html" target="_blank">CodeIgniter Loader class</a> qui ne sait pas chercher dans ce dossier est considéré comme une "limitation" de CodeIgniter. Si vous avez besoin d'étendre des fichiers core, vous devez tracker les modifications sur ces fichiers à l'aide de Git, sinon vous pouvez perdre vos modifications si vous faites une mise à jour de PyroCMS.
 
-In a similar way there are limitations on what config files you can put into here. For example config files like autoload.php, database.php and routes.php will have no effect here. It is recommended you only put custom config files in here that will be loaded and used within your own add-ons.
-
-You can use the **addons/shared\_addons/** folder in exactly the same way as the old **addons/** folder. The only difference is that when you upload a module or a theme from the site's admin panel it will be placed in **addons/default/**. Then if you upgrade to the Professional version at some point that theme, module, or widget will be confined to one site only. If you upgrade to Professional the add-ons for each additional site that you create will be placed in their own folder (**addons/__site\_name__**).
+De la même façon, il y a des limites concernant les fichiers de configuration. Les fichiers de configuration comme autoload.php, database.php ou routes.php n'auront aucun effet ici. Il est recommandé de déposer uniquement vos propres fichiers de configurations qui seront chargés et utilisés dans vos développements spécifiques.
+ 
+Vous pouvez utiliser le dossier **addons/shared\_addons/** exactement comme le dossier **addons/**. La seule différence est que quand vous téléchargez un module ou un thème à partir du panneau d'administration, il sera placé dans le dossier **addons/default/**. Si vous faites une mise à jour vers la version professionnelle de PyroCMS certains thèmes, modules ou widgets seront confinés à un seul site seulement. Si vous faites la mise à jour, les extensions que vous ajoutez seront plaçés dans leurs propres dossier (**addons/__site\_name__**).
