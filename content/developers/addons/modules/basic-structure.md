@@ -1,11 +1,11 @@
 # Developpement Module 
 
-PyroCMS est conçu pour être modulaire, et créer des modules avec PyroCMS est un processus assez simple.
+PyroCMS est conÃ§u pour Ãªtre modulaire, et crÃ©er des modules avec PyroCMS est un processus assez simple.
 Les modules de bases se trouvent dans <def>system/pyrocms/modules</def> et vous pouvez en installer de nouveau dans <def>addons/default/modules</def> ou <def>addons/shared_addons/modules</def>.
-tous les modules que vous créez doivent se trouver dans un de ces deux répertoires. Surtout pas dans system/cms/modules.
+tous les modules que vous crÃ©ez doivent se trouver dans un de ces deux rÃ©pertoires. Surtout pas dans system/cms/modules.
 
 
-Chaque module peut contenir les répertoires suivants :
+Chaque module peut contenir les rÃ©pertoires suivants :
 
 * config
 * controllers
@@ -17,21 +17,21 @@ Chaque module peut contenir les répertoires suivants :
 * css
 * img
 
-Si un module a besoin d'avoir un front-end (quelque chose qui s'affiche pour les internautes), alors il doit avoir au moins un controlleur etg il doit être nommé comme le module. Exemple : 
+Si un module a besoin d'avoir un front-end (quelque chose qui s'affiche pour les internautes), alors il doit avoir au moins un controlleur etg il doit Ãªtre nommÃ© comme le module. Exemple : 
 
 	addons/<site-ref>/modules/blog/controllers/blog.php
 
 ## Le fichier details.php du module.
 
-Chaque module doit contenir un fichier detail.php qui contient le nom du module, la description, version, si c'est disponible pour la backend et/ou frontend, les menus admin etc... Si vous concevez un module avec le backend => false alors il n'y aura pas de menu dans le panneau de configuration du site. De la même manière, frontend=>false n'affichera rien dans la navigation pour les internautes
+Chaque module doit contenir un fichier detail.php qui contient le nom du module, la description, version, si c'est disponible pour la backend et/ou frontend, les menus admin etc... Si vous concevez un module avec le backend => false alors il n'y aura pas de menu dans le panneau de configuration du site. De la mÃªme maniÃ¨re, frontend=>false n'affichera rien dans la navigation pour les internautes
 
-Lorsque le CP > Extensions est chargé ou lorsque PyroCMS s'installe, il indexe tout les fichiers details.php et charge les données depuis la méthode info() de la table default_modules. Si vous faites des changements dans ce fichier, il ne seront pas pris en compte tant que vous n'avez pas réinstallé le module. Une exception : Les sections et raccourcis de menu dans le panneau d'administration. Il sont chargés en permanence.
+Lorsque le CP > Extensions est chargÃ© ou lorsque PyroCMS s'installe, il indexe tout les fichiers details.php et charge les donnÃ©es depuis la mÃ©thode info() de la table default_modules. Si vous faites des changements dans ce fichier, il ne seront pas pris en compte tant que vous n'avez pas rÃ©installÃ© le module. Une exception : Les sections et raccourcis de menu dans le panneau d'administration. Il sont chargÃ©s en permanence.
 
-Vous devez utiliser $ this-> db-> dbprefix ('table_name') lors de l'exécution des requêtes manuelles. Cela permet de s'assurer que le module utilise la table de base de données correctement et que tous les noms de tables sont précédées d'un "ref site" qui, dans la plupart des installations sera simplement "default_". Cela garantit que vous pouvez facilement passer à professionnel si le besoin s'en fait sentir ou que vous pouvez distribuer le module d'installation à la fois sur la Communauté et Pro.
+Vous devez utiliser $ this-> db-> dbprefix ('table_name') lors de l'exÃ©cution des requÃªtes manuelles. Cela permet de s'assurer que le module utilise la table de base de donnÃ©es correctement et que tous les noms de tables sont prÃ©cÃ©dÃ©es d'un "ref site" qui, dans la plupart des installations sera simplement "default_". Cela garantit que vous pouvez facilement passer Ã  professionnel si le besoin s'en fait sentir ou que vous pouvez distribuer le module d'installation Ã  la fois sur la CommunautÃ© et Pro.
 
-<div class="tip"><strong>Note:</strong> Ceci est necessaire lorsque vous utilisez  $this->db->query() ou équivalent. En revanche l'Active Record comme $this->db->where() and $this->db->get() ajoute le préfixe automatiquement. Vous pouvez également gerer vos tables avec  dbforge pour éviter cette étape.</div>
+<div class="tip"><strong>Note:</strong> Ceci est necessaire lorsque vous utilisez  $this->db->query() ou Ã©quivalent. En revanche l'Active Record comme $this->db->where() and $this->db->get() ajoute le prÃ©fixe automatiquement. Vous pouvez Ã©galement gerer vos tables avec  dbforge pour Ã©viter cette Ã©tape.</div>
 
-Si vous souhaitez creer un module disponible pour tous les sites dans le cas d'une installation multisite, alors vous devez specifier votre propre préfixe avant de faire une requete. 
+Si vous souhaitez creer un module disponible pour tous les sites dans le cas d'une installation multisite, alors vous devez specifier votre propre prÃ©fixe avant de faire une requete. 
 If you wish to create a module that is available for use across all sites on a Multi-Site install then you can specify your own prefix before running queries to that table.
 
 Voici la structure d'un fichier details.php classique: 
@@ -150,25 +150,22 @@ Voici la structure d'un fichier details.php classique:
 		}
 	}
 
-	Le tableau contient des détails qui seront lues et enregistrées dans la base de données lors de l'installation. Vous pouvez fournir autant de langues supplémentaires que vous le souhaitez, par défaut la version english du nom et la description sera utilisée. 
+	Le tableau contient des dÃ©tails qui seront lues et enregistrÃ©es dans la base de donnÃ©es lors de l'installation. Vous pouvez fournir autant de langues supplÃ©mentaires que vous le souhaitez, par dÃ©faut la version english du nom et la description sera utilisÃ©e. 
 	
-	Ce tableau sera disponible dans votre Public\_Controller's and Admin\_Controller's via $this-&gt;module\_details['name']. Notez que le nom et la description retourné seront ceux de la langue active. 
+	Ce tableau sera disponible dans votre Public\_Controller's and Admin\_Controller's via $this-&gt;module\_details['name']. Notez que le nom et la description retournÃ© seront ceux de la langue active. 
 	
 
 ## Detail File Resources
 
-Although it is likely that your third party module will be installed via the Add-ons section of the control panel, it is a good precaution to take note that your module may be installed when the PyroCMS installer runs. Modules that are in the shared_addons folder will be installed along with core modules during installation.
 
-Because the installer is a separate CodeIgniter application, you cannot load any module files such as configs or helpers when your module is being installed via the PyroCMS installer. Because of this, we recommend that your details.php file be independent of other configs, helpers, or other CodeIgniter-loaded resources.
+MÃªme s'il est probable que votre module tierce partie sera installÃ© via la section Add-ons du panneau de commande, notez qu'il peuvent Ã©galement Ãªtre installÃ© pendant l'installation de PyroCMS s'ils se trouvent dans le dossier Shared Addons.
 
-Même s'il est probable que votre module tierce partie sera installé via la section Add-ons du panneau de commande, notez qu'il peuvent également être installé pendant l'installation de PyroCMS s'ils se trouvent dans le dossier Shared Addons.
-
-Nous recommandons que votre fichier details.php soit indépendant des configs et autres helper, ou d'autres ressources CodeIgniter.
+Nous recommandons que votre fichier details.php soit indÃ©pendant des configs et autres helper, ou d'autres ressources CodeIgniter.
 
 
 ## Public Controllers
 
-Dans codeIgniter il y a une seule classe controleur. Dans PyroCMS il y en à 4 : Controller, MY\_Controller, Admin\_Controller and Public\_Controller. Pour les utiliser, vous devez les étendre comme ça :
+Dans codeIgniter il y a une seule classe controleur. Dans PyroCMS il y en Ã  4 : Controller, MY\_Controller, Admin\_Controller and Public\_Controller. Pour les utiliser, vous devez les Ã©tendre comme Ã§a :
 
 	class News extends Public_Controller {
 		
@@ -181,12 +178,12 @@ Dans codeIgniter il y a une seule classe controleur. Dans PyroCMS il y en à 4 : 
 		 }
 	}
 
-	Cette page sera disponible pour quiconque est loggé ou pas, et utilisera le design du frontend.
-	Cela signifie que que ça utilisera le thème courant et sera visible par "http://example.com/modulename".
+	Cette page sera disponible pour quiconque est loggÃ© ou pas, et utilisera le design du frontend.
+	Cela signifie que que Ã§a utilisera le thÃ¨me courant et sera visible par "http://example.com/modulename".
 
 ## Admin Controllers
 
-Contrôleurs d'administration ont quelques propriétés différentes à eux. Il vérifie automatiquement que l'utilisateur a la permission d'être là, et les rediriger vers une page de connexion si elle n'est pas. Cela signifie qu'ils doivent soit avoir un rôle d'utilisateur de "admin" ou bien être autorisés autorisation spécifique pour accéder au module.
+ContrÃ´leurs d'administration ont quelques propriÃ©tÃ©s diffÃ©rentes Ã  eux. Il vÃ©rifie automatiquement que l'utilisateur a la permission d'Ãªtre lÃ , et les rediriger vers une page de connexion si elle n'est pas. Cela signifie qu'ils doivent soit avoir un rÃ´le d'utilisateur de "admin" ou bien Ãªtre autorisÃ©s pour accÃ©der au module.
 
 <def>addons/</def>&lt;site-ref&gt;<def>/modules/&lt;module-name&gt;/controllers/admin.php</def>
 
