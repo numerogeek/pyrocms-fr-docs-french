@@ -1,4 +1,4 @@
-constants-and-globals | Constants and Globals
+constants-and-globals | Constantes and Globales
 assets
 events
 files
