@@ -1,38 +1,38 @@
 # Coding Standards
 
-These standards for code formatting and documentation must be followed by anyone contributing to PyroCMS. Any contributions that do not meet these guidelines will not be accepted.
+Ces normes de formatage de code et de documentation doivent être respectées par toute personne qui voudra contribuer à PyroCMS. Tous les apports qui ne répondent pas à ces lignes directrices ne seront pas acceptées.
 
 ## File Formatting
 
 ### Closing PHP Tag
 
-Files containing only PHP code should always omit the closing PHP tag. This prevents many of the elusive white screens of death caused by white space after the closing PHP tag.
+Les fichiers contenant que du code PHP doivent toujours omettre la balise de fermeture PHP. Cela empêche la plupart des fameux écrans blancs causée par un espace après la balise de fermeture PHP.
 
 ### Indentation
 
-All indentation should be done using real tabs, NOT spaces. Aligning items after the indentation should be done using spaces, NOT tabs.
+Tout retrait doit être effectué en utilisant des tabulations, PAS D’ESPACES. L’alignement des éléments après le retrait doit être effectué en utilisant des espaces, et non des tabulations.
 
-	// indented 2 tabs
-	$var       = 'something';  // indented with tabs and aligned value & comments
-	$variable  = 'else';       // with those above/below using spaces
+	// retrait de 2 tabulation
+	$var       = 'something';  // Retrait avec tabulation valeur & commentaires aligné.
+	$variable  = 'else';       // Avec les régules ci-dessus en utilisant les espaces
 
 ### Line Endings
 
-Line endings should be Unix-style LF.
+Les fins de ligne doivent être de type Unix LF.
 
 ### File Naming
 
-All file names must be all lower case. No exceptions.
+Tous les noms de fichiers doivent être en minuscules. Sans aucunes exceptions.
 
 ### Encoding
 
-Files should be saved with UTF-8 encoding and the BOM should not be used.
+Les fichiers doivent être enregistrés avec encodage UTF-8 et la marque d'ordre des octets (BOM) ne devraient pas être utilisée.
 
 ## Naming Conventions
 
 ### Classes
 
-Class names should use underscores to separate words, and each word in the class name should begin with a capital letter. The use of CamelCase is discouraged but cannot be prevented in some cases.
+Les noms des classe doivent utiliser le tiret bas pour séparer les mots, et chaque mot dans le nom de la classe doit commencer par une lettre majuscule. L'utilisation de CamelCase est déconseillée, mais ne peut être évité dans certains cas.
 
 	class Theme
 	{
@@ -48,13 +48,13 @@ Class names should use underscores to separate words, and each word in the class
 
 ### Methods
 
-Like class names, method names should use underscores to separate words, not CamelCase. Method names should also be all lower case. Visibility should always be included (public, protected, private). An underscore can be used at the beginning of the name to make it clear the method is protected/private or to signify it should be considered as such when you need it public.
+Comme les noms des classes, les noms des méthodes doivent utiliser le tiret bas pour séparer les mots, et non pas CamelCase. Les noms de méthode devraient également être en minuscules. La visibilité devrait toujours être incluse (public, protégé, privé). Un tiret bas peut être utilisé au début du nom pour préciser si la méthode est protégée  privé ou pour signifier qu'elle doit être considérée comme public
 
 	class Session
 	{
 		public function get_flash($name, $data)
 		{
-			// Some code here
+			// Votre code ici
 		}
 	}
 
@@ -63,20 +63,19 @@ or
 	class View
 	{
 
-		// Array of global view data
+		// Tableau de données de vue global
 		protected $_global_data = array();
 
 		protected function capture($view_filename, array $view_data)
 		{
-			// Some code here
+			// Votre code ici
 		}
 
 	}
 
 ### Variables
 
-Variable names should be concise and contain only lower case letters and underscores. Loop iterators should
-	be short, preferably a single character.
+Les noms de variables doivent être concises et contenir seulement des lettres en minuscules et des tirets bas. Les itérateurs de boucle doivent être court, de préférence un caractère unique.
 
 	$first_name
 	$buffer
@@ -84,8 +83,7 @@ Variable names should be concise and contain only lower case letters and undersc
 
 ### Constants
 
-Constants follow the same guide lines as variables with the exception that constants should be all upper
-	case.
+Les constantes suivent les mêmes régules des variables à la seule exception que les constantes doivent être toutes en majuscule.
 
 	MY_CONSTANT
 	TEMPLATE_PATH
@@ -93,8 +91,7 @@ Constants follow the same guide lines as variables with the exception that const
 
 ## Keywords
 
-Keywords such as <kbd>true</kbd>, <kbd>false</kbd>, <kbd>null</kbd>, <kbd>as</kbd>, etc should be all lower case, as upper case is reserved for
-	constants. Same goes for primitive types like <kbd>array</kbd>, <kbd>integer</kbd>, <kbd>string</kbd>.
+Les mots-clés tels que <kbd> true </ kbd>, <kbd> false </ kbd>, <kbd> null </ kbd>, <kbd> as </ kbd>, etc. doivent être en minuscules, étant les majuscules sont réservé pour les constantes. En va de même pour les types primitifs comme <kbd>array </ kbd>, <kbd> integer</ kbd>, <kbd> string</ kbd>.
 
 	$var = true;
 	$var = false;
@@ -105,65 +102,65 @@ Keywords such as <kbd>true</kbd>, <kbd>false</kbd>, <kbd>null</kbd>, <kbd>as</kb
 
 ## Control Structures
 
-The structure keywords such as <kbd>if</kbd>, <kbd>for</kbd>, <kbd>foreach</kbd>, <kbd>while</kbd>, <kbd>switch</kbd> should be followed by a space as should parameter/argument lists and values. Braces should be placed on a new line, and <kbd>break</kbd> should have the same tab as its case.
+Les structures des mots clés tels que <kbd>if</kbd>, <kbd>for</kbd>, <kbd>foreach</kbd>, <kbd>while</kbd>, <kbd>switch</kbd> doivent être suivi d'un espace de même que les  listes et les valeurs de paramètre / argument. Les accolades doivent être placés sur une nouvelle ligne, et <kbd>break</kbd> doit avoir le même onglet que son cas.
 
 	if ($arg === true)
 	{
-		//do something here
+		// Faire quelque chose ici
 	}
 	elseif ($arg === null)
 	{
-		//do something else here
+		//Faire quelque chose d'autre ici
 	}
 	else
 	{
-		//catch all do something here
+		// Mettez ici votre instruction else pour les conditions ci-dessus
 	}
 	
 	foreach ($array as $key => $value)
 	{
-		//loop here
+		// Votre boucle ici
 	}
 	
 	for ($i = 0; $i < $max; $i++)
 	{
-		//loop here
+		// Votre boucle ici
 	}
 	
 	while ($i < $max)
 	{
-		//loop here
+		// Votre boucle ici
 	}
 	
 	switch ($var)
 	{
 		case 'value1':
-		//do something here
+		// Faire quelque chose ici
 		break;
 		default :
-		//do something here
+		// Faire quelque chose ici
 		break;
 	}
 
 ## Alternative if statements
 
-In some cases, a full <kbd>if</kbd> statement is a bit too much code for a simple conditional assignment or function call. In those cases, you can use PHP's execution logic to use a shorter boolean-operator based syntax.
+Dans certains cas, une complète déclaration de <kbd>if</kbd> nécessite trop de code  pour une simple affectation conditionnelle ou un appel à une fonction. Dans ces cas, vous pouvez utiliser la logique d'exécution de PHP pour utiliser des opérateurs booléens plus court basé sur la syntaxe.
 
-Using <kbd>and</kbd> means the second part only gets evaluated if the first part were true, using <kbd>or</kbd> means the second part only gets executed if the first part were false.
+L'utilisation du <kbd>and</kbd> signifie que la deuxième partie sera évaluée uniquement si la première partie est valide, l'utilisation de <kbd>or</kbd> signifie que la deuxième partie sera exécutée uniquement si la première partie est fausse. 
 
-Don't use this when both <kbd>if</kbd> and <kbd>else</kbd> are needed, just in cases like single conditional statements.
+Ne pas utiliser cela lorsque les deux <kbd>if</kbd> et <kbd>else</kbd> sont nécessaires, seulement dans des cas comme les simples instructions conditionnelles.
 
-	// instead of if (isset($var)) { Config::set('var', $var); }
+	// au lieu de if (isset($var)) { Config::set('var', $var); }
 	isset($var) and Config::set('var', $var);
 
-	// instead of if ( ! isset($var)) { $var = Config::get('var'); }
+	// au lieu de if ( ! isset($var)) { $var = Config::get('var'); }
 	isset($var) or $var = Config::get('var');
 
-	// DON'T DO THIS
+	// NE FAITE JAMAIS CELA
 	$this->uri->segment(3) and $var = $this->uri->segment(3);
 	$this->uri->segment(3) or $var = 'default';
 
-	// This is better:
+	// Cela est mieux:
 	if ($this->uri->segment(3))
 	{
 		$var = $this->uri->segment(3);
@@ -173,15 +170,16 @@ Don't use this when both <kbd>if</kbd> and <kbd>else</kbd> are needed, just in c
 		$var = 'default';
 	}
 
-	// Or this:
+	// ou bien comme ça:
 	$var = $this->uri->segment(3) ? $this->uri->segment(3) : 'default';
 
 ## Comparisons, Logical operators
 
-Comparing function/method returns and variables should be type aware, for example some functions may return
-	<kbd>false</kbd>, and when comparing this return the type sensitive operators such as <kbd>===</kbd> or <kbd>!==</kbd>. Additionally, use of
-	<kbd>and</kbd> or <kbd>or</kbd> is preferred over <kbd>&&</kbd> or <kbd>||</kbd> for readability. In some cases, this cannot be avoided and the use of
-	<kbd>&&</kbd> or <kbd>||</kbd> as its required may be used. The <kbd>!</kbd> should have spaces on both sides when used.
+En comparant la fonction / méthode, les retours  et les variables doivent être de type courant, par exemple, certaines fonctions peuvent retourner
+	<kbd>false</kbd>, et en comparant cela on  retourne les opérateurs de type sensibles tels que les <kbd>===</kbd> ou <kbd>!==</kbd>. En outre, l'utilisation de
+	<kbd>and</kbd> ou <kbd>or</kbd>  est préférable sur <kbd>&&</kbd> ou <kbd>||</kbd>  pour plus de lisibilité. Dans certains cas, cela ne peut pas être évité et 
+	<kbd>&&</kbd> ou <kbd>||</kbd> peuvent être utilisés. <kbd>!</kbd> doit  avoir des espaces des deux côtés quand il est utilisé.
+
 
 	if ($var == false and $other_var != 'some_value')
 	if ($var === false or my_function() !== false)
@@ -189,7 +187,7 @@ Comparing function/method returns and variables should be type aware, for exampl
 
 ## Class/Interface Declarations
 
-Class/interface declarations have the opening brace on the following line:
+Dans la déclaration d'une classe/interface l’accolade s’ouvre après un retour chariot::
 
 	class Session
 	{
@@ -198,21 +196,19 @@ Class/interface declarations have the opening brace on the following line:
 
 ## Function/Method Declarations
 
-The function/method opening brace must always begin on a new line and have the same indentation as its
-	structure.
+L’accolade ouvrante d’une fonction/méthode doit toujours commencer dans une nouvelle ligne et doit avoir la même indentation que sa structure.
 
 	class Session
 	{
 		public static function get_flash($name, $data)
 		{
-			// Some code here
+			// Votre code ici
 		}
 	}
 
 ### Variables
 
-When initializing variables, one variable should be declared per line. To enhance code readability, these
-	should each be on a separate line. Align values and comments when appropriate.
+Lors de l'initialisation des variables, On doit déclarer une et une seule variable par ligne. Pour améliorer la lisibilité du code, les valeurs et commentaires doivent entre aligner si nécessaire.
 
 	$var        = ''; // do each on its own line
 	$other_var  = ''; // do each on its own line
@@ -227,16 +223,16 @@ No space should come before or after the initial bracket/parenthesis. There shou
 
 ### String quotation
 
-Single quotes are preferred over double quotes.
+Les simples guillemets  sont préférables  aux doubles guillemets.
 
 ### Concatenation
 
-String concatenation should not contain spaces around the joined parts.
+La concaténation d'une chaîne ne doit pas contenir d'espaces autour des pièces concaténer.
 
-	//yes
+	// Oui
 	$string = 'my string '.$var.' the rest of my string';
 
-	//no
+	// Non
 	$string = 'my string ' . $var . ' the rest of my string';
 
 ### Operators
@@ -248,29 +244,29 @@ String concatenation should not contain spaces around the joined parts.
 	++$var; //no space after increment
 	
 ## Documentation
-Having a good API documentation is a vital requirement for any successful project. When building your module, please take the time to document its code or even write help articles on it (but that is a different story). 
+Avoir une bonne documentation d'une API est une condition essentielle pour tout projet réussi. Lors du développement de votre module, s'il vous plaît prenez le temps pour documenter votre code ou même écrire des articles d'aide (mais c'est une autre histoire).
 
-Most of PyroCMS' core components [are documented](http://docs.pyrocms.com/2.1/api/) and add-ons are actually expected to keep up by at least having each of their files declare the respective package they belong to. Anything can be documented except for views. Classes and functions should be documented using the standard PHPDoc format. 
+La plupart des composants du core de PyroCMS sont [documentés ici](http://www.pyrocms.fr/docs)
 
-The actual API Documentation is being generated by [DocBlox](http://www.docblox-project.org/). This gives the ability to reflect the HMVC approach used in building PyroCMS into the actual API documentation. This is how the API Documentation packages are structured in PyroCMS:
+La documentation actuelle de l'API est généré par [DocBlox](http://www.docblox-project.org/). Cela donne la possibilité de refléter l'approche HMVC utilisé lors du développement de PyroCms dans la documentation actuelle de l'API. Voici comment les paquets de la documentation de l'API sont structurés dans PyroCms:
 
-	* External libraries use their respective packages (none of our business)
-	* Everything related to PyroCMS is under the *PyroCMS* package.
-	* Inside the *PyroCMS* package there are two distinct subpackages:
-	  * *Core*, everything that comes with the PyroCMS release
-	  * *Addon*, 3rd party modules, themes, etc.
-	* Each of *Core* & *Addon* have can possibly have the following subpackages:
+	* Bibliothèques externes utilisants leurs paquets respectifs (none of our business)
+	* Tout ce qui est relié à PyroCMS est sous le paquet * PyroCMS *.
+	* A l'intérieur du paquet * PyroCMS * il y a deux sous-paquet distincts:
+	  * *Core*, tout ce qui vient avec la publication du  PyroCMS.
+	  * *Addon*, 3rd party modules, thèmes, etc.
+	* Each of *Core* & *Addon* peuvent éventuellement avoir les sous-paquets suivants:
 	  * *Controllers*
 	  * *Models*
 	  * *Modules*
 	  * *Libraries*
 	  * *Plugins* 
 	  * *Widgets*
-	* Furthermore *Modules* can have:
+	* En outre les  *Modules* peuvent avoir:
 	  * *Controllers*
 	  * *Models*
 	  * *Libraries*
 	  * *Plugins*
 	  * *Widgets*
 
-In the PyroCMS distribution you will find a configuration file to actually generate the API Documentation locally and review your work. Remember, you can always refer to the PyroCMS source to see how things are done.
+Dans la distribution PyroCMS vous trouverez un fichier de configuration pour générer localement la documentation de l'API et examiner votre travail. Rappelez-vous, vous pouvez toujours vous référer à la source PyroCMS pour voir comment les choses sont faites.
