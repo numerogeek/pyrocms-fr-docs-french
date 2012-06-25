@@ -1,159 +1,172 @@
-# Files
+# Fichiers
 
-The files module is a central place to store any kind of file that you will use in your site content. It manages 
-uploads and also integrates with cloud providers. It has a powerful library that takes care of all the 
-complicated things for addon developers. It takes your input and returns a standardized array as the result.
+Le Module Fichiers est un module principal pour le stockage des médias et fichiers que vous utiliser comme contenus du site. il permet de gérer
+le téléchargement et peut s'interconnecter avec des services de cloud computing. Il dispose d'une librairie puissante permettant de standardiser les téléchargements.
 
-To use the library you must first load it using <kbd>$this->load->library('files/files');</kbd> You are then ready to start using it in your module.
+Pour utiliser cette librairie vous devez tout d'abord la charger <kbd>$this->load->library('files/files');</kbd> Vous pouvez alors l'utiliser dans votre module.
 
-*Note that you must set up your cloud provider credentials in CP > Settings > Files before you can interact with a cloud location*
+*Note : vous devez d'abord renseigner dans le Panneau d'administration (PA) vos paramètres de fournisseur cloud en vous rendant dans PA > Paramètres > Fichiers avant de pouvoir exploiter les données cloud*
 
-## Results
+## Résultats
 
-The first thing you should know is that every action performed by the Files library will return an array. It will be in this format:
+Première chose à noter, chaque action effectuée par la librairie renvoie un tableau qui sera au format suivant :
 
-	array('status' => true, 'message' => 'A message string in the current language', 'data' => $any_available_data);
+	array('status' => true, 'message' => 'Un message dans la langue courante', 'data' => $any_available_data);
 
-## Creating a folder
+## Créer un dossier
 
 #### Usage
 
 	Files::create_folder($parent_id, $folder_name);
 
-#### Parameters
+#### Paramètres
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
-			<th>Name</th>
+			<th>Nom</th>
 			<th>Description</th>
-			<th>Required</th>
+			<th>Requis</th>
 			<th>Type</th>
 		</tr>
 		<tr>
 			<td>$parent_id</td>
-			<td>The id of the folder that this should be a child of. Use 0 to set this folder as top level.</td>
-			<td>Yes</td>
+			<td>l'id du dossier parent. Utilisez 0 pour définir la racine.</td>
+			<td>Oui</td>
 			<td>Integer</td>
 		</tr>
 		<tr>
 			<td>$folder_name</td>
-			<td>The name to give this folder. Defaults to 'Untitled Folder'</td>
-			<td>No</td>
+			<td>Le Nom à donner à ce dossier. Par défaut 'Untitled Folder'</td>
+			<td>Non</td>
 			<td>String</td>
 		</tr>
 		<tr>
 			<td>$location</td>
-			<td>The location (local, rackspace-cf, or amazon-s3). Defaults to local</td>
-			<td>No</td>
+			<td>L'emplacement (local, rackspace-cf où amazon-s3). Par défaut il est défini à local</td>
+			<td>Non</td>
 			<td>String</td>
 		</tr>
 		<tr>
 			<td>$remote_container</td>
-			<td>If the location is a cloud provider then you must specify the bucket/container name.</td>
-			<td>No</td>
+			<td>Si l'emplacement de destination est un fournisseur Cloud alors vous devez spécifier le nom du conteneur.</td>
+			<td>Non</td>
 			<td>String</td>
 		</tr>
 	</tbody>
 </table>
 
-## Uploading a file
+## Télécharger un fichier
 
 #### Usage
 
-To upload a file you must have a form in your view so that the user can select the file they wish to upload. It must be a multipart form.
+Pour télécharger un fichier, vous devez insérer un formulaire dans votre vue. Ce formulaire va permettre à l'utilisateur de séléctionner le fichier qu'il souhaite télécharger il doit être de type multipart form.
 
 	< ?php echo form_open_multipart('your-module/upload');? >
 		<input type="file" name="userfile" />
 	< ?php echo form_close(); ? >
 
-Now in your controller:
+Maintenant dans votre contrôleur :
 
 	Files::upload($folder_id, $name);
 
-Here's the cool part: if the folder that you are uploading to has its location set to a cloud provider the 
-file will be uploaded to the cloud with no extra effort on your part.
+Maintenant la partie agréable : si le dossier dans lequel vous télécharger votre fichier est un dossier hébergé par un fournisseur cloud, le fichier sera téléchargé sur cet espace sans effort de votre part.
 
-#### Parameters
+#### Paramètres
 
 <table cellpadding="0" cellspacing="0">
 	<tbody>
 		<tr>
-			<th>Name</th>
+			<th>Nom</th>
 			<th>Description</th>
-			<th>Required</th>
+			<th>Requis</th>
 			<th>Type</th>
 		</tr>
 		<tr>
 			<td>$folder_id</td>
-			<td>The id of the folder to upload to.</td>
-			<td>Yes</td>
+			<td>l'id du dossier cible.</td>
+			<td>Oui</td>
 			<td>Integer</td>
 		</tr>
 		<tr>
 			<td>$name</td>
-			<td>The name to give the file. Defaults to the uploaded file's filename.</td>
-			<td>No</td>
+			<td>Le nom donné au fichier. Par défaut le fichier chargé prend le nom du fichier.</td>
+			<td>Non</td>
 			<td>String</td>
 		</tr>
 		<tr>
 			<td>$field</td>
-			<td>The input field name. Default is 'userfile'.</td>
-			<td>No</td>
+			<td>Le nom du champ input. Par défaut 'userfile'.</td>
+			<td>Non</td>
 			<td>String</td>
 		</tr>
 		<tr>
 			<td>$width</td>
-			<td>If you wish to resize the image while uploading you can pass the desired width.</td>
-			<td>No</td>
+			<td>Si vous souhaitez redimensionner l'image pendant le téléchargement vous pouvez passer la largeur souhaitée.</td>
+			<td>Non</td>
 			<td>Integer</td>
 		</tr>
 		<tr>
 			<td>$height</td>
-			<td>If you wish to resize the image while uploading you can pass the desired height.</td>
-			<td>No</td>
+                        <td>Si vous souhaitez redimensionner l'image pendant le téléchargement vous pouvez passer la largeur souhaitée.</td>
+			<td>Non</td>
 			<td>Integer</td>
 		</tr>
 		<tr>
 			<td>$ratio</td>
-			<td>If resizing the image should the resizer try to keep the same width to height ratio?</td>
-			<td>No</td>
+			<td>En redimensionnant l'image est-ce que l'outil doit essayer de garder le même ratio largeur/hauteur?</td>
+			<td>Non</td>
 			<td>Boolean</td>
 		</tr>
 	</tbody>
 </table>
 
-## Available Methods
+## Méthodes disponibles
 
-    // create a virtual folder
+    // Créer un dossier virtuel
     create_folder($parent = 0, $name = 'Untitled Folder', $location = 'local', $remote_container = '')
-    // check if a container is available in a cloud location
+
+    // Vérifier qu'un conteneur est disponible sur l'espace de stockage à distance
     check_container($name, $location)
-    // create a container at a cloud location
+
+    // Créer un conteneur dans un espace de stockage à distance
     create_container($container, $location, $folder_id = 0)
-    // get the contents of a folder
+
+    // Récupérer le contenu d'un dossier
     folder_contents($folder_id = 0)
-    // get a multidimensional array of all virtual folders
+
+    // Récupérer un tableau multidimensionnel de tout les dossiers virtuels
     folder_tree()
-    // rename a virtual folder
+
+    // Renommer un dossier virtuel
     rename_folder($id = 0, $name)
-    // delete a virtual folder
+
+    // Supprimer un dossier virtuel
     delete_folder($id)
-    // upload a file
+
+    // Télécharger un fichier
     upload($folder_id, $name = FALSE, $field = 'userfile', $width = FALSE, $height = FALSE, $ratio = FALSE)
-    // rename a local file (default) or move between local and cloud locations or between cloud providers
+
+    // Renommer un fichier local (default) ou déplacer des fichiers entre un emlacement local et un espace de stockage à distance
     move($file_id, $new_name = FALSE, $location = FALSE, $new_location = 'local', $container = '')
-    // get a file by filename or id
+
+    // Récupérer un fichier par nom ou par id
     get_file($identifier = 0)
-    // get all files records recorded in the database
+
+    // Récupérer tout les enregistrements de fichiers enregistrés en base de données
     get_files($location = 'local', $container = '')
-    // list all physical files. Does not depend on database records
+
+    // Lister tout les fichiers physiques. Ne dépend pas des données enregistrées en base
     list_files($location = 'local', $container = '')
-    // refresh the database records for this folder. Fetches new files from the cloud and deletes db records if file no longer exists.
+
+    // Rafraîchir les entrées en base de données pour ce dossier. Récupères les nouveaux fichier de l'espace de stockage distant et supprime les fichiers qui n'existent plus.
     synchronize($folder_id)
-    // rename a file both in the database and on the filesystem if it's a local file. Only changes the record for cloud files
+
+    // Renommer un fichier simultanément en base de données et physiquement si c'est fichier local. Change l'enregistrement si c'est un fichier sur un espace cloud
     rename_file($id = 0, $name)
-    // deletes a file 
+
+    // Supprimer un fichier
     delete_file($id = 0)
-    // searches folders and files for the term. Returns [limit] of each
+
+    // Rechercher un dossier ou un fichier par termes. Retourne [limit] pour chaque
     search($search = '', $limit = 5)

@@ -1,18 +1,20 @@
-# Keywords
+# Mots-Clés
 
-Keywords are the same as what other systems would call Tags. We have Tags already, so we call them Keywords. They are used in the core to add META Keywords to your pages and to add Keywords to blog articles.
 
-## Using Keywords in your modules
 
-Simply add a **char(32)** field to your database. This stored the MD5 string that represents the combination of keywords that were used.
+Les Mots-Clés correspondent à ce que peut s'appeler des Tags sur d'autres systèmes. Nous utilisons déjà ce terme, donc nous utilisons à la place Mots-Clés. Ils sont utilisés dans le système pour ajouter des META Mots-Clés sur vos pages et d'ajouter des Mots-Clés à vos articles de blog.
 
-<script src="https://gist.github.com/1777448.js?file=gistfile1.aw"></script>
+## Utilisez des Mots-Clés dans vos modules
 
-In the above example, <kdb>Keywords::process('foo, bar, baz')</kdb> takes a comma separated string of keywords and converts them into a MD5 string, which is a unique hash for the combination of keywords being used.
+Ajoutez simplement un champ **char(32)** dans votre base de données. Cela permet d'enregistrer la chaîne MD5 qui représente la combinaison de mot-clés que vous avez utilisé.
 
-## Schema
+<script src="https://gist.github.com/1777448.js"> </script>
 
-Each keyword will be taken and stored in a table called "default\_keywords", which makes the table smaller and makes counting popular words easier.
+Dans l'exemple ci-dessus, <kdb>Keywords::process('foo, bar, baz')</kdb> prend des chaines de caractères séparées par des virgules et converti le résultat en une chaîne MD5, qui est un identifiant unique résultant de la combinaison des mots-clés utilisés.
+
+## Schéma
+
+Chaque mot-clé est ajouté et enregistré dans une table nommée "default\_keywords", ce qui permet de disposer d'une petite table facilement exploitable pour compter les mots-clés les plus populaires.
 
 	+-------+------------------+------+-----+---------+----------------+
 	| Field | Type             | Null | Key | Default | Extra          |
@@ -21,7 +23,7 @@ Each keyword will be taken and stored in a table called "default\_keywords", whi
 	| name  | varchar(50)      | NO   |     | NULL    |                |
 	+-------+------------------+------+-----+---------+----------------+
 
-They will then be linked in "default\_keywords\_applied" with the keyword hash as a unique identifier against each keyword_id.
+Il seront reliés à la table "default\_keywords\_applied" pour faire concorder le hash du mot clé et sont identifiant unique keyword_id.
 
 	+------------+------------------+------+-----+---------+----------------+
 	| Field      | Type             | Null | Key | Default | Extra          |
@@ -31,15 +33,15 @@ They will then be linked in "default\_keywords\_applied" with the keyword hash a
 	| keyword_id | int(10) unsigned | NO   |     | NULL    |                |
 	+------------+------------------+------+-----+---------+----------------+
 	
-## Displaying Keywords
+## Afficher des mots-clés
 
-In your public controller you can use the following to build a list of keyword links in a string.
+Dans vos contrôleurs public, vous pouvez l'utiliser pour construire les lien vers une liste de mot-clés.
 
 	Keywords::get_links($hash, 'blog/tagged')
 	
-You can also return an array or a string with the following methods:
+Vous pouvez également retourner un tableau ou une chaine de caractère en utilisant les méthodes suivantes :
 
 	Keywords::get_array($hash);
 	Keywords::get_string($hash);
 
-For more on usage search for "Keywords" in the [API Documentation](/2.1/api).
+Pour plus d'information consultez la page "Mots-Clés" dans [la documentation de l'API](/2.1/api).
