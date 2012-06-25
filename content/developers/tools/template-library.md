@@ -1,100 +1,100 @@
-# Template Library
+# Librairie Template
 
-The template library powers all out the output on the PyroCMS public and admin pages. The template is auto-loaded, so there is no need to load it in your controllers.
+La librarie Template permet de générer les vues du front et du back office de PyroCMS. La librairie est chargée automatiquement, vous n'avez pas besoin de la charger dans vos contrôleurs.
 
-## Method Reference
+## Méthodes de référence
 
 ### title(<var>$title1, [$title2, $title3, …]</var>)
 
-Sets the title of the page. You can send as many title parameters as you'd like, although the first one is required. Your titles will be imploded with the title string separator.
+La fonction title permet de définir le titre de la page. Vous pouvez envoyer autant de paramètres titre que vous souhaitez, seul le premier est requis. Vos titres seront séparés par le séparateur de titre (| par défaut).
 
-#### Example:
+#### Exemple:
 
-	$this->template->title('The Current Page');
+	$this->template->title('La Page Actuelle');
 
 ### build(<var>$view, [$data]</var>)
 
-The build function is what builds the output for the browser in PyroCMS and is used in lieu of simply loading a view. It will take the theme data, layout, and build those elements automatically, so your view file only needs to contain the actual page content. 
+La fonction build permet de construire le template de sortie et est utilisé au lieu de simplement charger une vue. Il permet de regrouper automatiquement les paramètres de thèmes, le layout et les données transmises à la vue et construit ces éléments automatiquement, votre vue ne comportant que les contenus de la page.
 
-#### Example:
+#### Exemple:
 
 	$this->template->build('form', $this->data);
 
 ### set(<var>$var_name, $var_value</var>)
 
-Sets data that can be used in your views. You can provide two strings or an array.
+La fonction set permet de définir et réutiliser des variables dans vos vues. Vous pouvez ainsi transmettre des chaînes de caractères ou des tableaux.
 
-#### Example:
+#### Exemple:
 
-Two strings of data:
+Chaîne de caractères:
 
 	$this->template->set('foo', $bar);
 	
-Array of data:	
+Tableau de données:	
 	
 	$this->template->set(array('foo' => $bar, 'foo2' => $bar2));
 	
 ### prepend_metadata(<var>$string</var>)
 
-Adds a string to the start of the auto-generated metadata output.
+Cette méthode permet d'ajouter une chaîne de caractère au début de la sortie metadata.
 
-#### Example:
+#### Exemple:
 
 	$this->template->prepend_metadata('<script src="/js/jquery.js"></script>');
 	
 ### append_metadata(<var>$string</var>)
 
-Adds a string to the end of the auto-generated metadata output.
+Cette méthode permet d'ajouter une chaîne de caractère à la fin de la sortie metadata.
 
-#### Example:
+#### Exemple:
 
 	$this->template->append_metadata('<script src="/js/jquery.flot.js"></script>');
 	
 ### set\_layout(<var>$layout\_name</var>)
 
-Allows you to set a layout from your **your_theme/views/layouts** folder.
+Cette méthode permet de sélectionner un gabarit de page (layout) présent dans votre dossier **mon_theme/views/layouts**.
 
-#### Example:
+#### Exemple:
 
-	// This will use your_theme/views/layouts/two_col.html
-	// as the page layout.
+	// Ceci utilisera mon_theme/views/layouts/two_col.html
+	// Comme gabarit de page.
 	$this->template->set_layout('two_col');
 	
-<div class="tip"><strong>Note:</strong> When using Public\_Controller and Admin\_Controller, the layout is already set. However, in some cases, you may prefer to override this function or use set a layout outside of the PyroCMS base controllers.</div>
+<div class="tip"><strong>Note:</strong> Lorsque vous utilisez les contrôleurs Public\_Controller et Admin\_Controller, le gabarit est déjà défini. Cependant, dans certains cas, vous pouvez préférer surcharger ce gabarit par un gabarit personnalisé.</div>
 
 ### set\_theme(<var>$theme\_name</var>)
 
-Allows you to set a theme.
+Cette méthode vous permet de définir un thème.
 
-#### Example:
+#### Exemple:
 
 	$this->template->set_layout('my_theme');
 	
-<div class="tip"><strong>Note:</strong> As with set_layout, the theme is already set when extending either the Public\_Controller and Admin\_Controller.</div>
+<div class="tip"><strong>Note:</strong> Comme pour set_layout, Le thème est déjà défini lorsque vous étendez les contrôleurs Public\_Controller et Admin\_Controller.</div>
 
 ### enable\_parser(<var>bool</var>)
 
-This allows you to enable the PyroCMS Lex tag parser. When the tag parser is off, PyroCMS tags will not work in your views.
+Cette méthode permet d'authoriser/refuser l'utilisation des Tag PyroCMS Lex. Lorsque le parseur de Tag est défini à off, les tags PyroCMS présents dans vos vues ne seront pas fonctionnels.
 
-#### Example
+#### Exemple
 
 	$this->template->enable_parser(true);
 
 ### enable_minify(<var>bool</var>)
 
-Enables/disables the minification of assets added via the template library.
+Activer/désactiver la minification des éléments ajouté via la librairie Template.
 
-#### Example
+#### Exemple
 
 	$this->template->enable_minify(true);
 
 ### get\_theme\_path()
 
-Returns the path of the current theme.
+Cette méthode retourne le chemin du thème courant.
 
-## Chaining
+## Chaînage
 
-The template library methods are frequently chained in PyroCMS, so you may see the functions called like this:
+Les méthodes de la librairie Template sont souvent chaînées dans PyroCMS, vous pourrez fréquement les voir appelées comme suit:
 
 	$this->template
 		->title($this->module_details['name'], lang('keywords:add_title'))

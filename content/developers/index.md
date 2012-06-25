@@ -1,26 +1,26 @@
-# Developer Docs
+# Documentation Développeur
 
-Welcome to the PyroCMS Developer manual. If you are a PHP developer interested in developing for PyroCMS, then you have come to right place!
+Bienvenue sur la documentation développeur PyroCMS. Si vous êtes un développeur PHP intéressé par le développement pour PyroCMS, alors vous êtes au bon endroit!
 
-## Why Develop for PyroCMS?
+## Pourquoi développer pour PyroCMS&nbsp;?
 
-First of all, you might be wondering what is so great about developing for PyroCMS? 
+Dans un premier vous devez vous demander, mais pourquoi est-ce aussi génial de développer pour PyroCMS&nbsp;?
 
 PyroCMS...
 
-* is built on CodeIgniter 
-* is built with logically structured, clean code
-* provides structures for your add-ons (modules, widgets, and plugins) 
-* provides tools to speed up development (PyroCache, Events, Permissions)
-* has a well-documented control panel UI structure 
-* has a large (and growing) user base
+* est basé sur CodeIgniter
+* est construit sur un logique structurée et un code simple et clair
+* fourni une structure pour développer vos propres extensions (modules, widgets et plugins) 
+* fourni des outils pour accélérer le développement (PyroCache, Events, Permissions)
+* propose une structure de gestion des panneaux d'administration dans le back office bien documentée
+* est créé par une large communauté de développeurs (et qui va en augmentant, du moins nous l'espérons)
 
-Whether you want to create modules for your own projects, or create things the PyroCMS community can use, PyroCMS allows you to build out custom functionality while taking advantage of an established CMS framework. The rest of the developer documentation will walk you through the specifics.
+Si vous souhaitez développer des modules pour vos propres projet ou créer des extensions pouvant être utilisées par la communauté. PyroCMS, vous permet de construire vos propres fonctionnalités tout en bénéficiant d'une base solide CMS/Framework. La documentation développeur vous permet de plonger plus en détail dans les spécifications.
 
 ## CodeIgniter
 
-To be effective at developing with PyroCMS, you should have a working knowledge of CodeIgniter, which is the PHP framework that PyroCMS is built on. Luckily, CodeIgniter is straightforward and not difficult to pick up. You can download CodeIgniter and read the documentation at <a href="http://codeigniter.com">codeigniter.com</a>.
+Pour être efficace dans le développement pour PyroCMS, vous devez connaitre les principes de fonctionnement du Framework CodeIgniter. Heureusement, CodeIgniter est facile à appréhender et très bien documenté (en anglais majoritairement). Vous pouvez télécharger CodeIgniter et lire la documentation en suivnant le lien suivant : <a href="http://codeigniter.com">codeigniter.com</a>.
 
-## Getting Started
+## Pour Débuter
 
-You will need a copy of PyroCMS to develop with. Grab a copy of PyroCMS from <a href="https://github.com/pyrocms/pyrocms">GitHub</a>, where you can either get the master branch (which is always the latest stable release) or the develop branch, which is where new features are developed and tested. You can also simply download PyroCMS, but we recommend cloning it to your local machine so you can pull down changes easily.
+Vous devez télécharger une copie de PyroCMS. Téléchargez Pyrocms à partir de <a href="https://github.com/pyrocms/pyrocms">GitHub</a>. Vous pouvez télécharger la branche principale (master branch) qui est toujours la dernière version stable. Vous pouvez également télécharger la branche de développement qui possède les dernières nouveautés en cours de création ou de test. Vous pouvez également simplement télécharger PyroCMS mais nous vous recommandons d'effectuer un clone à partir du dépôt Git pour pouvoir faire les mises à jour facilement.
