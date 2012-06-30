@@ -1,8 +1,8 @@
-constants-and-globals | Constantes and Globales
+constants-and-globals | Constantes et Globales
 assets
 events
-files
-keywords
+files | Fichiers
+keywords | Mots-Clés
 pyrocache | PyroCache
 cp-style-guide | Control Panel GUI
 template-library | Librairie Template
