@@ -1,6 +1,6 @@
 constants-and-globals | Constantes et Globales
-assets
-events
+assets | Ressources CSS et JS (Assets)
+events | Événements (Events)
 files | Fichiers
 keywords | Mots-Clés
 pyrocache | PyroCache
