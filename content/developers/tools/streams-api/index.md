@@ -1,55 +1,57 @@
 # Streams Core API
 
-Starting with PyroCMS 2.1, the core of PyroStreams is now a module in PyroCMS called Streams Core. This means that all modules in PyroCMS can now take advantage of streams functions. To make this easy, a Streams API has developed in order to make working with Streams Core simple.
+Depuis la version PyroCMS 2.1, le noyau de PyroStreams est maintenant un module intégré à PyroCMS et appelé Streams Core. Ceci signifie que tout les modules dans PyroCMS peuvent maintenant bénéficier des avantages fournis par les fonctions de flux. Pour rendre ceci facile, une API Streams à été développée dans le but de rendre simple l'usage des Flux.
 
-## API Basics
+## Pré-requis API
 
-### Loading the API
+### Chargement de l'API
 
-The Streams API is a driver, so it is loaded like so:
+L'API Streams est un driver, vous pouvez la charger ainsi:
 
 	$this->load->driver('Streams');
 	
-Once the API has been loaded, you can use each driver like this:
+Une fois l'API chargée, vous pouvez utiliser chaque driver ainsi:
 
 	$this->streams->driver_name->function();
 	
-### API Drivers
+### Drivers API
 
-The Streams API has five drivers:
+L'API Streams contient cinq drivers:
 
-* Streams
-* Fields
-* Entries
+* Flux (Streams)
+* Champs (Fields)
+* Entrées (Entries)
 * CP
-* Utilities
+* Utilitaires (Utilities)
 
-We'll go into depth about what each of these drivers does, but first, an overview of Streams in general.
+Nous rentrons plus en détail pour chacun de ces drivers, mais dans un premier temps nous allons vous donner un aperçu plus général des fonctionnalités fournies par les Flux (Streams).
 
-## Streams Overview
+## Généralité sur les Flux
 
-Streams is essentially a database abstraction layer. Streams are 
+Les "Flux" sont une couche d'abstraction de base de données.
 
-### Namespacing and Prefixing
+### Espace de Noms et Préfixage
 
-Since modules can now use streams for data interactions, in order to prevent naming conflicts between tables, Streams can be namespaced and prefixed. For example, the users module can prefix all of its fields and streams with **users**. That way, a field called _first\_name_ can exist for both the Users module and another module.
+Maintenant que les modules peuvent utiliser les flux pour toute interaction sur les données, dans le but de prévenir les conflits de noms entre les tables, les Flux peuvent utiliser des espaces de noms et être préfixés. Par exemple, le module Utilisateur (system/cms/modules/users) peut préfixer tout ses champs et flux avec **users**. Ainsi un champ appelé _first\_name_ peut exister à la fois pour le module Users ou un autre module.
 
-In some cases, you might want to also prefix you tables. This prefix is in addition to the SITE_REF prefix used by PyroStreams. This is useful if you want to make sure you do not have any table name collisions.
+Dans certains cas, vous pouvez également souhaiter préfixer vos table. Ce préfixe viens en addition du prefixe SITE_REF utilisé par PyroStreams. Ceci est pratique pour être sur de ne pas avoir de conflit entre les noms de tables.
 
-### Streams Core vs. PyroStreams
+### Noyau Streams vs. PyroStreams
 
-PyroStreams is still sold as a separate add-on on top of PyroCMS (although it comes with PyroCMS Pro), so what's the difference? PyroStreams now sits on top of the streams core and provides a GUI to create data structures. It also includes the PyroStreams plugin for outputting data. It is basically a free-form data creation tool now running on Streams core, where with the API you can create more set data structures needed for your module.
+PyroStreams est toujours vendu comme un extension séparée et peut être utilisée avec PyroCMS (l'extension est fournie avec la version professionnelle de PyroCMS), Quelle sont les différences alors ? PyroStreams surcharge le fonctionnement du noyau streams et fourni une couche GUI pour créer des structures de données. Il inclut également le plugin PyroStream pour afficher des données.
 
-### Why Use the Streams API?
+### Pourquoi utiliser l'API Streams ?
 
-You can of course use database interactions however you'd like in your modules, but Streams core gives you access to some big time savers and benefits:
+Vous pouvez utiliser les interactions avec la base de donnée comme bon vous semble pour vos modules, le noyau Streams Core vous permet de gagner un temps précieux et certains avantages comme:
 
-* You no longer have to write CRUD validation - the API takes care of this for you.
-* You can use field type and integrate their functionality into your module.
-* You get an easy to use, abstracted way to install and uninstall your modules.
+* Vous n'avez plus besoin d'écrire des système de validation CRUD, l'API s'en charge pour vous.
+* Vous pouvez utiliser des type de Champs et intégrer leurs fonctionnalités dans votre module.
+* Vous disposez d'une façon simple d'installer et désinstaller vos modules.
 
-## Our Example
+## Notre Exemple
 
-It will be clearer to have an example thread that runs through these docs, so here is our example:
+Un exemple serait certainement plus explicite, voici notre exemple:
 
-_Our module is a simple FAQ module. Users add FAQs and view them in a list. Our only stream is a faq stream and our namespace is streams_sample._
+_Notre module de démonstration est un simple module permettant de gérer une FAQ. Les utilisateurs peuvent ajouter des FAQs et les voir sous forme de liste. Le seul flux est le flux faq et notre espace de nom est streams\_sample._
+
+Le code source du module FAQ peut être téléchargé en suivant le lien suivant : [https://github.com/pyrocms/streams-enabled-module-sample](https://github.com/pyrocms/streams-enabled-module-sample)     
