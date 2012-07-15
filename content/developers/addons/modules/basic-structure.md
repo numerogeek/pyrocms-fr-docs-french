@@ -1,4 +1,4 @@
-# Developpement Module 
+# Structure de base d'un Module
 
 PyroCMS est conçu pour être modulaire, et créer des modules avec PyroCMS est un processus assez simple.
 Les modules de bases se trouvent dans <def>system/pyrocms/modules</def> et vous pouvez en installer de nouveau dans <def>addons/default/modules</def> ou <def>addons/shared_addons/modules</def>.
