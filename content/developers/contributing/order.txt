@@ -1,4 +1,4 @@
-coding-standards
-using-git
-translating-language-files
+coding-standards |Conventions de codage
+using-git | Utiliser Git
+translating-language-files | Traduire les fichiers de langue
 store-submission-guidelines

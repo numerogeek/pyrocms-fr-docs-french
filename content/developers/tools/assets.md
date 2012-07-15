@@ -1,91 +1,89 @@
-# Asset
+# Ressources CSS et JS (Asset)
 
-Asset management is handled by a PHP library called Asset written by Antony Male. It is an easy-to-use asset management library which boasts the following features:
+La gestion des ressources CSS et JS est pris en charge par la librairie PHP Asset écrite par Antony Male. Cette librairie, facile à utiliser, vous permet d'utiliser les fonctionnalités suivantes:
 
-- Specify which assets to use for a particular page in your view/controller, and print them in your template.
-- Collect your assets into groups, either pre-defined or on-the-fly.
-- Enable/disable specific groups from your view/controller.
-- Minify your groups and combine into single files to reduce browser requests and loading times.
-- Define JS/CSS in your view/controller to be included in your template.
-- Namespace your assets.
+- Spécifier quelles ressources utiliser pour une page particulière dans votre vue/contrôleur, et les inscrire dans vos templates.
+- Regrouper les assets en groupes soit de façon pré-définie soit générés à la volée
+- Activer/Désactiver des groupes spécifiques de vos vues/contrôleurs
+- Minifier des groupes et les combiner des des fichiers singuliers afin de réduire et minimiser les requêtes serveurs
+- Définir vos JS/CSS dans votre vue/contrôleur pour être inclus dans vos templates.
+- Utiliser les espaces de noms pour vos ressources
 
-Basic usage
+Utilisation de base
 -----------
 
-JS and CSS files are handled the same way, so we'll just consider JS. Just substitude 'js' with 'css' for css-related functions.
+Les fichiers JS et CSS sont pris en charge de la même manière, considérons l'exemple suivant pour les JS (Il suffit de substituer 'js' par 'css' pour les fonctions relatives aux css).
 
-Javascript files can be added using the following, where **myfile.js** and **myfile2.js** are the javascript files you want to include,
-and are located at **assets/js/myfile.js** and **assets/js/myfile2.js** (configurable).
+Les fichiers Javascript peuvent être ajoutés en utilisant **monfichier.js** et **monfichier2.js** qui sont les fichiers JS que vous souhaitez utiliser, et sont situés dans **assets/js/monfichier.js** and **assets/js/monfichier2.js** (configurable).
 
-	Asset::js('myfile.js');
-	Asset::js('myfile2.js');
+	Asset::js('monfichier.js');
+	Asset::js('monfichier2.js');
 
-By default, Asset will minify both of these files and combine them into a single file (which is written to **assets/cache/&lt;md5 hash&gt;.js**).
-To include this file in your page, use the following:
+Par défaut, la librairie minifiera ces deux fichiers en les combinant dans un fichier unique (qui sera écrit dans **assets/cache/&lt;md5 hash&gt;.js**).
+Pour inclure ce fichier dans votre page, vous pouvez écrire:
 
 	echo Asset::render_js();
 
-Returns something like
+Cela vous retourne quelque chose comme
 
 	<script type="text/javascript" src="http://localhost/assets/cache/d148a723c710760bc62ca3ecc8c50206.js?1307384477"></script>
 
-If you've got minification turned off (see the section at the bottom of this guide), you'll instead get:
+Si la minification est désactivée (voir section dans ce document), vous aurez alors :
 
-	<script type="text/javascript" src="http://localhost/site/assets/js/myfile.js"></script>
-	<script type="text/javascript" src="http://localhost/site/assets/js/myfile2.js"></script>
+	<script type="text/javascript" src="http://localhost/site/assets/js/monfichier.js"></script>
+	<script type="text/javascript" src="http://localhost/site/assets/js/monfichier2.js"></script>
 
-If you have a specific file **myfile.min.js** which you want Asset to use, rather than generating its own minified version, you
-can pass this as the second argument:
+Si vous avez un fichier spécifique **monfichier.min.js** que vous souhaitez que la libraire Asset utilise plutôt que de générer ces propres versions minifiées, vous 
+pouvez ajouter ce second argument:
 
-	Asset::js('myfile.js', 'myfile.min.js');
+	Asset::js('monfichier.js', 'monfichier.min.js');
 
-Some folks like css and js tags to be together. 
+Pour pouvoir traiter les fichiers css et js vous pouvez:  
 
-**Asset::render()** is a shortcut which calls **Asset::render_css()** and then **Asset::render_js()**.
+**Asset::render()** est un raccourci qui permet d'appeler **Asset::render_css()** et **Asset::render_js()**.
 
 Images
 ------
 
 Although the original Asset library provided groups, etc, for dealing with images, I couldn't see the point.
 
-Therefore image handling is somewhat simpler, and can be summed up by the following line, where the third argument is an optional array of attributes:
+La prise en charge des images est simple, et peut être résumé par la ligne suivante, le troisième argument est optionnel et permet de passer un tableau d'attributs:
 
-	echo Asset::img('test.jpg', 'alt text', array('width' => 200));
+	echo Asset::img('test.jpg', 'texte alternatif', array('width' => 200));
 
-You can also pass an array of images (which will all have to same attributes applied to them):
+Vous pouvez également passer un tableau d'images (qui ont tous des attributs qui leurs sont appliqués):
 
 	echo Asset::img(array('test.jpg', 'test2.jpg'), 'Some thumbnails');
 
-This function has more power when you consider namespacing, detailed later.
+Cette fonctionnalité devient puissante quand vous considérez les namespacing, détaillé plus loin dans ce document.
 
 
-Groups
+Groupes
 ------
 
-Groups are collections of js/css files.
-A group can be defined in the config file, or on-the-fly. They can be enabled and disabled individually, and rendered individually.
+Les groupes sont une collection de fichiers js/css.
+Un groupe peut être défini dans un fichier de configuration ou à la volée. Ils peuvent être activés et désactivés individuellements, et générés individuellement.
 
-CSS and JS have their own group namespaces, so feel free to overlap.
+Les CSS et les JS ont leurs propre espace de nom, vous pouvez donc les surcharger.
 
-Specific groups can be rendered using eg 
+Les groupes spécifiques peuvent être affichés en utilisant
 	
-	Asset::render_js('group_name')
-	
-If no group name is passed, **all** groups will be rendered.  
+	Asset::render_js('nom_groupe')
 
+Si aucun nom de groupe n'est passé en argument, **tout** les groupes seront générés (**all** groups).
 
-<div class="tip"><strong>Note:</strong> When a group is rendered, it is disabled. See the "Extra attributes" section for an application of this behaviour.</div>
+<div class="tip"><strong>Note:</strong> Quand un groupe est généré, il est désactivé. Voir la section "Extra attributes" pour voir une application de ce fonctionnement.</div>
 
-Files can be added to a group by passing the group name as the third argument to **Asset::js** or **Asset::css**, respectively:
+Les fichiers peuvent être ajoutés à un groupe en passant le nom du groupe en troisième argument à **Asset::js** ou **Asset::css**, respectivement:
 
-	Asset::js('myfile.js', 'myfile.min.js', 'group_name');
-	Asset::css('myfile.css', false, 'group_name');
+	Asset::js('monfichier.js', 'monfichier.min.js', 'nom_groupe');
+	Asset::css('monfichier.css', false, 'nom_groupe');
 
-<div class="tip"><strong>Note:</strong> As an aside, you can pass any non-string value instead of 'false' in the second example, and Asset will behave the same: generate your minified file for you.</div>
+<div class="tip"><strong>Note:</strong>Vous pouvez également passer une valeur non-string à la place de 'false' dans le second exemple, Asset se comportera de la même façon: il génèrera et mifiniera le fichier pour vous.</div>
 
-If the group name doesn't exist, the group is created, and enabled.
+Si le nom de groupe n'existe pas, le groupe est créé et activé.
 
-You can also add groups on-the-fly using **Asset::add\_group($group\_type, $group\_name, $files, $options)**, where **$options** is an array with **any** of the following keys:
+Vous pouvez également ajouter des groupes à la volée en utilisant **Asset::add\_group($group\_type, $group\_name, $files, $options)**, ou **$options** est un tableau avec **aucune** des clés suivantes:
 
 	$options = array(
 		'enabled' => true/false,
@@ -96,54 +94,50 @@ You can also add groups on-the-fly using **Asset::add\_group($group\_type, $grou
 		'deps' => array(),
 	);
 
-This method is provided merely for convenience when adding lots of files to a group at once.
-You don't have to create a group before adding files to it - the group will be created if it doesn't exist.
+Cette méthode est fournie uniquement pour permettre d'ajouter de nombreux fichiers à un groupe en une seule fois.
+Vous n'avez pas besoin de créer un groupe avant d'ajouter des fichiers dedans - le groupe sera créé si il n'existe pas.
 
-You can change any of these options on-the-fly using 
+Vous pouvez changer n'importe laquelle de ces options à la volée en faisant 
 
 	Asset::set_group_option($type, $group, $key, $value)
 	
-Or the CSS- and JS- specific versions
+ou des versions spécifiques de fichiers CSS et JS
 
 	Asset::set_js_option($group, $key, $value)
 	Asset::set_css_option($group, $key, $value)
 	
-**$group** has some special values: an empty string is a shortcut to the 'global' group (to which files are added if a group is not specified), and '\*' is a shortcut to all groups.
+**$group** comporte des valeurs spéciales: une chaine de caractère vide correspond à un raccourci au groupe 'global' (groupe auquel les fichiers sont ajoutés si aucun groupe n'est spécifié) et '\*' est un raccourci pour tout les groupes.
 
+Des noms de groupes multiples peuvent également être spécifiés en utilisant un tableau.
 
-Multiple group names can also be specified, using an array.
-
-Examples:
-
+Exemples :
 	
-	// Add a dep to the my_plugin group
+	// Ajouter un dep à mon groupe my_plugin
 	Asset::set_js_option('my_plugin', 'deps', 'jquery');
 
-	// Make all files added to the current page using Asset::add_css() display inline:
+	// Permet que tout les fichiers ajoutés à la page courante utilisant la méthode Asset::add_css() s'afiche en ligne (display inline):
 	Asset::set_css_option('', 'inline', true);
 
-	// Turn off minification for all groups, regardless of per-group settings, for the current page:
+	// Désactive la minification pour tout les groupes,  quelque soit les paramaètres per-group, pour la page courante:
 	Asset::set_js_option('*', 'min', false);
-	
 
-When you call **Asset::render()** (or the js- and css-specific variants), the order that groups are rendered is determined by the order in which they were created, with groups present in the config file appearing first.
+Lorsque vous appelez la méthode **Asset::render()**  (ou les variantes spécifiques js et css), l'ordre des groupes générés est déterminé par l'ordre dans lequel ils ont été créés, avec les groupes présents dans le fichiers de configuration apparaissant en premier.
 
-Similarly (for JS files only), the order in which files appear is determined by the order in which they were added.
+Similairement (pour les fichiers JS seulement), l'ordre dans lequel les fichiers vont apparaître va déterminer l'ordre dans lequel ils vont être ajoutés.
 
-This allows you a degree of control over what order your files are included in your page, which may be necessary when satisfying dependencies.
+Ceci vous permet un degré de contrôle supplémentaire pour contrôler l'ordre d'inclusion des fichier dans votre page, ce qui peut être nécessaire pour satisfaire certaines dépendances.
 
-If this isn't working for you, or you want something a bit more explicit, try this: If file A depends on B, add B to its own group and explicitly render it first.
+Si ceci ne fonctionne pas pour vous, ou que vous voulez quelque chose de plus explicite, essayez ceci : Si un fichier A dépend de B, ajouter B à son propre groupe et traitez le en premier.
 
-<div class="tip"><strong>NOTE:</strong> Calling <strong>Asset::js('file.js')</strong> will add that file to the "global" group. Use / abuse as you need!</div>
+<div class="tip"><strong>NOTE:</strong> Appeler <strong>Asset::js('fichier.js')</strong> ajoutera ce fichier au groupe "global". Utilisez ceci autant que vous pouvez!</div>
 
-<div class="tip"><strong>NOTE:</strong> The arguments for <strong>Asset::add_group</strong> used to be different. Backwards compatibility is maintained (for now), but you are encouraged to more to the new syntax.</div>
+<div class="tip"><strong>NOTE:</strong> Les arguments pour <strong>Asset::add_group</strong> sont différents. Les rétro-compatbilités sont assurées pour le moment, mais nous vous encourageons à utiliser la nouvelle syntaxe.</div>
 
-
-Paths and namespacing
+Chemins et espaces de noms
 ---------------------
 
-The Asset library searches through all of the items in the 'paths' config key until it finds the first matching file.
-However, this approach was undesirable, as it means that if you had the directory structure below, and tried to include 'index.js', the file that was included would be determined by the order of the entries in the paths array.
+La librairie Asset effectue une recherche parmi tout les éléments jusqu'à ce qu'il trouve un premier fichier correspondant.
+Cette approche n'est pas souhaitable, car elle signifie que si vous avez la structure de répertoires ci-dessous, et que vous essayez d'inclure 'index.js', le fichier que sera inclu sera déterminé par l'ordre des dossiers.
 
 	themes/
 		theme_name/
@@ -152,55 +146,52 @@ However, this approach was undesirable, as it means that if you had the director
 				index.js
 		  img/
 
-Asset brings decent namespacing to the rescue!
-For the above example, you can specify the following in your config file:
+La librairie Asset permet par l'intermédiaire des espaces de noms de résoudre ce problème. Vous pouvez spécifier le code suivant dans votre fichier de configuration:
 
 	'paths' => array(
 		'core' => 'assets/',
 		'admin' => 'assets/admin/',
 	),
 
-
-You can also add paths on-the-flow using **Asset::add\_path($key, $path)**:
+Vous pouvez également ajouter des chemins à la volée en utilisant **Asset::add\_path($key, $path)**:
 
 	Asset::add_path('admin', 'assets/admin/');
 
-Which path to use is then decided by prefixing the asset filename with the key of the path to use. Note that if you omit the path key, the current default path key (initially 'core') is used.
+Le répertoire à utiliser est déterminé en préfixant le fichier ressource avec la clé du chemin à utiliser. Notez que si vous oubliez le chemin clé, le chemin par défaut est utilisé (initialement 'core').
 
 
 	Asset::js('index.js');
-	// Or
+	// où
 	Asset::js('module::index.js');
-	// Will add assets/js/index.js
+	// Permet d'ajouter assets/js/index.js
 
 	Asset::js('admin::index.js');
-	// Will add assets/admin/js/index.js
+	// Permet d'ajouter assets/admin/js/index.js
 
-	echo Asset::img('test.png', 'An image');
-	// <img src="...assets/img/test.png" alt="An image" />
+	echo Asset::img('test.png', 'Une image');
+	// <img src="...assets/img/test.png" alt="Une image" />
 
-	echo Asset::img('admin::test.png', 'An image');
-	// <img src="...assets/admin/img/test.png" alt="An image" />
+	echo Asset::img('admin::test.png', 'Une image');
+	// <img src="...assets/admin/img/test.png" alt="Une image" />
 
-
-If you wish, you can change the current default path key using **Asset::set\_path('path_key')**. This can be useful if you know that all of the assets in a given file will be from a given path. For example:
+Si vous le souhaitez, vous pouvez changer la clé du chemin par défaut en utilisant **Asset::set\_path('path_key')**. Ceci peut-être pratique si par exemple toutes les ressources pour un fichier donnée proviennent d'un chemin donné. Par exemple:
 
 	Asset::set_path('admin');
 	Asset::js('index.js');
-	// Will add assets/admin/js/index.js
+	// Permet d'ajouter assets/admin/js/index.js
 
-The "core" path can be restored by calling **Asset::set\_path()** with no arguments (or calling **Asset::set\_path('core')**).
+le chemin "core" peut être restoré en appelant la fonction **Asset::set\_path()** et en ne passant aucun argument (vous pouvez également appeler **Asset::set\_path('core')**).
 
-You can also namespace the files listed in the config file's 'groups' section, in the same manner.
-Note that these are loaded before the namespace is changed from 'core', so any files not in the core namespace will have to by explicitely prepended with the namespace name.
+De la même manière, Vous pouvez également utiliser un espace de nom pour les fichiers listés dans le fichier de configuration 'groups'.
+Note que ceux-ci sont chargé avant l'espace de nom soit changé de 'core' à une autre valeur, les fichiers n'étant pas dans l'espace de nom core devrons être explicitement prefixés avec le nom de l'espace de nom.
 
-In addition, you can override the config options **js\_path**, **css\_path** and **img_path** on a per-path basis. In this case, the element of the 
-**paths** config array takes the following form,
-where each of **js\_path**, **css\_path** and **img\_path** are optional. If they are not specified, the defaults will be used.
+En outre, vous pouvez surcharger les options de configuration **js\_path**, **css\_path** et **img_path** sur la base d'un nom de chemin.
+ Dans ce cas, le tableau comprenant les options de configuration **paths**  prends la forme suivante les options **js\_path**, **css\_path** et 
+**img\_path** sont optionnelles. Si elles ne sont pas spécifiées, les valeurs par défaut seront utilisées.
 
 	array (
-		'some_key' => array(
-			'path' => 'more_assets/',
+		'une_cle' => array(
+			'path' => 'plus_de_librairies/',
 			'js_dir' => 'javascript/',
 			'css_dir' => 'styles/',
 			'img_dir' => 'images/',
@@ -208,82 +199,77 @@ where each of **js\_path**, **css\_path** and **img\_path** are optional. If the
 		),
 	),
 
-This can be particularly useful when you're using some third-party code, and don't have control over where the assets are located.
+Ceci est particulièrement utile quand vous utilisez des modules personnalisés (addons), Et que vous n'avez pas de contrôle sur l'emplacement des librairies.
 
-Note also that you can add an asset which uses a path which isn't yet defined.
-Asset only requires that the path is defined by the time the file is rendered.
+Noter également que vous pouvez ajouter une ressource dont le chemin n'est pas encore défini.
+Les ressources requièrent uniquement que le chemin soit défini au moment ou le fichier est utilisé. 
+
 
 Globbing
 --------
 
-As well as filenames, you can specify [glob patterns](http://php.net/glob). This will act exactly the same as if each file which the glob matches had been added individually.  
-For example:
+Comme pour les nom de fichiers, vous pouvez spécifier le [masque glob pattern](http://php.net/glob), 
+ceci retournera un tableau contenant les fichiers et dossiers correpondant au masque recherché
 
+Par exemple:
 
 	Asset::css('*.css');
-	// Runs glob('assets/css/*.css') and adds all matches.
+	// Exécute glob('assets/css/*.css') et ajoute tout les fichiers css correspondants.
 
 	Asset::css('admin::admin_*.css');
-	// (Assuming the paths configuration in the "Paths and namespacing" section)
-	// Executes glob('adders/admin/css/admin_*.css') and adds all matches
+	// (En utilisant les paramètres des chemin présent dans la section "Chemins et Espaces de noms"Paths and namespacing")
+	// Exécute glob('adders/admin/css/admin_*.css') et ajoute tout les fichiers correspondants
 
 	Asset::js('*.js', '*.js');
-	// Adds all js files in assets/js, ensuring that none of them are pre-minified.
+	// Ajoute tout les fichiers JS dans assets/js, en assurant qu'aucun des fichiers n'est pre-minifié.
 
+Une exception est renvoyée si aucun fichier ne corresponds.
 
-An exception is thrown when no files can be matched.
-
-Minification and combining
+Minification et combinaison
 --------------------------
 
-Minification uses libraries from Stephen Clay's [Minify library](http://code.google.com/p/minify/).
+La Minification utilise la librairie de Stephen Clay [Minify library](http://code.google.com/p/minify/).
 
 The **min** and **combine** config file keys work together to control exactly how Asset operates:
 
-**Combine and minify:**
-When an enabled group is rendered, the files in that group are minified (or the minified version used, if given, see the second parameter of eg **Asset::js()**),
-and combined into a single cache file in **assets/cache** (configurable).
+**Combiner et minifier:**Quand un groupe activé est généré, les fichiers de ce groupe sont minifiés (ou la version minifiée sera utilisé, si indiqué dans le second paramètre cf. la fonction Asset::js()**),
+et seront combinés dans un fichier dans **assets/cache** (configurable).
 
-**Combine and not minify:**
-When an enabled group is rendered, the files in that group are combined into a a single cache file in **assets/cache** (configurable). The files are not minified.
+**Combiner seulement:**Quand un groupe activé est généré, les fichiers dans ce groupe sont combiné en un seul fichier dans **assets/cache** (configurable). Les fichiers ne sont pas minifiés.
 
-**Not combine and minify:**
-When an enabled group is rendered, a separate &lt;script&gt; or &lt;link&gt; tag is created for each file.
-If a minified version of a file has been given, it will be linked to. Otherwise, the non-minified version is linked to.
-NOTE THAT THIS MIGHT BE UNEXPECTED BEHAVIOUR. It is useful, however, when linking to remote assets. See the section on remote assets.
+**Minifier seulement:** Quant un groupe activé est généré, des balises séparées &lt;script&gt; ou &lt;link&gt; sont créés pour chaque fichier.
+Si une version minifié d'un fichier est présent, il sera utilisé en lien. les versions non-minifiées seront également ajoutés en lien.
+ATTENTION CE COMPORTEMENT PEUT NE PAS ETRE SOUHAITE. Il est utile, lors de l'utilisation de ressources à distance (cf. la section ressources à distance).
 
-**Not combine and not minify**
-When an enabled group is rendered, a separate  &lt;script&gt; or &lt;link&gt; tag is created for each file.
-The non-minified version of the file is used in each case.
+**Ni combinées ni minifiées** Qun groupe activé est généré, des balises &lt;script&gt; ou &lt;link&gt; sont créés pour chaque fichier.
+La version non-minifiée de chaque fichier est utilisé dans chacun des cas.
 
-You can choose to include a comment above each  &lt;script&gt; or &lt;link&gt; tag saying which group is contained with that file by setting the **show\_files** key to true in the config file.
-Similarly, you can choose to put comments inside each minified file, saying which origin file has ended up where - set **show\_files\_inline** to **true**.
+Vous pouvez choisir d'inclure un commentaire au dessus de chaque balise &lt;script&gt; ou &lt;link&gt; affichant le nom du groupe contenu en définissant la clé de configuration **show\_files** à TRUE dans le fichier de configuration.
+De la même façon, vous pouvez choisir d'inclure ces commentaires à l'intérieur de chaque fichier minifié, il suffit de définir  **show\_files\_inline** à **true**.
 
-You can control whether Asset minifies or combines individual groups, see the groups section.
+Vous pouvez contrôler si la librairie Asset minifie ou combine individuellment les groupes (voir la section "Groupes").
 
-When minifying CSS files, urls are rewritten to take account of the fact that your css file has effectively moved into **assets/cache**.
+Quand vous minifiez des fichier CSS, les urls sont réécrites pour prendre en compte le fait que vos fichiers CSS ont été déplacés dans **assets/cache**.
 
-With both CSS and JS files, when a cache file is used, changing the order in which files were added to the group will re-generate the cache file, with the files in their new positions.
-This is because the order of files can be important, as dependancies may need to be satisfied.
-Bear this in mind when adding files to groups dynamically - if you're changing the order of files in an otherwise identical group, you're not allowing
-the browser to properly use its cache.
+Autant pour les fichiers CSS que JS, quand un fichier en cache est utilisé, lorsqu'on change l'ordre d'utilisation de ces fichiers dans le groupe 
+le fichier en cache est regénéré pour prendre en compte leurs nouvelles positions. L'ordre des fichiers peut être important pour assurer les différentes dépendances.
+Gardez bien ceci à l'esprit, quand vous ajouter des fichiers dynamiquement à des groupes, si vous décidez de changer l'ordre des fichiers dans un groupe identique, vous ne permettez pas au navigateur d'utiliser proprement son cache.
 
-<div class="tip"><strong>NOTE:</strong> If you change the contents of a group, and a cache file is used, a new cache file will be generated. However the old one will not be removed (groups are mutable,
-so Asset doesn't know whether a page still uses the old cache file).
-Therefore an occasional clearout of <strong>assets/cache/</strong> is recommended. See the section below on clearing the cache.</div>
+<div class="tip"><strong>NOTE:</strong> Si vous changez le contenu d'un groupe, et qu'un fichier cache est utilisé, un nouveau fichier cache sera généré. L'ancien fichier ne sera pas supprimé (les groupes sont modifiables, la librairie Asset ne sait pas définir si une page utilise encore l'ancien fichier en cache).
+Il est conseillé de vider le cache régulièrement <strong>assets/cache/</strong>. Voir la section ci-dessous concernant le nettoyage du cache.</div>
 
-
-Clearing the cache
+Vider le cache
 ------------------
-Since cache files are not automatically removed (Asset has no way of knowing whether a cache file might be needed again), a few methods have been provided to remove cache files.
+Les fichies en cache ne sont pas automatiquement supprimés (la librairie ne permet pas de savoir si les fichiers en cache sont encore utilisés ou non), voici donc quelques méthodes pour supprimer les fichiers en cache.
 
-**Asset::clear\_cache()** will clear all cache files, while **Asset::clear\_js\_cache()** and **Asset::clear\_css\_cache()** will remove just JS and CSS files respectively.  
-All of the above functions optionally accept an argument allowing you to only delete cache files last modified before a certain time. This time is specified as a
-[strtotime](http://php.net/strtotime)-formatted string, for example "2 hours ago", "last Tuesday", or "20110609".  
-For example:
+**Asset::clear\_cache()** permet de supprimer l'ensemble de fichiers en cache. **Asset::clear\_js\_cache()** et **Asset::clear\_css\_cache()** permettent de supprimer respectivement les fichiers JS et CSS en cache.
+Ces fonctions acceptent en arguement un paramètre, permettant de supprimer les fichiers en cache qui ont été modifié depuis un certain temps. 
+Ce temps est spécifié par une chaîne de caractère comme un [strtotime](http://php.net/strtotime), par exemple : "2 hours ago", "last Tuesday" ou "20110609".
+
+Par exemple:
 
 	Asset::clear_js_cache('2 hours ago');
-	// Removes all js cache files last modified more than 2 hours ago
+	// Supprime tout les fichier JS modifié depuis plus de 2 heures
 
 	Asset::clear_cache('yesterday');
-	// Removes all cache files last modified yesterday
+	// Supprime tout les fichiers en caches modifiés depuis hier

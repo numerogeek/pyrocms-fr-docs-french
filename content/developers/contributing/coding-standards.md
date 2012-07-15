@@ -1,4 +1,4 @@
-# Coding Standards
+# Conventions de codage
 
 Ces normes de formatage de code et de documentation doivent être respectées par toute personne qui voudra contribuer à PyroCMS. Tous les apports qui ne répondent pas à ces lignes directrices ne seront pas acceptées.
 
