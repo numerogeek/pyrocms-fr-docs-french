@@ -1,20 +1,22 @@
 # PyroCache
 
+
 PyroCMS takes Caching very seriously as it can make a massive difference between a quick site and something that takes so long to load people give up. We use the library PyroCache (renamed recently to avoid conflicting with the <a href="http://codeigniter.com/user_guide/libraries/caching.html" target="_blank">Cache class</a> added in CodeIgniter Reactor). The benefit of using PyroCache over the built in Cache class is that it had simple model and library call modes.
 
-No idea what that means? Have a look at this example. Here is an uncached module call:
+Vous ne comprennez pas à quoi ça sert ? regardez l'exemple. Voici un appel à module sans utilisation du cache:
 
 	$this->blog_m->get_posts($category_id, 'live');
 
-Here is a cached module call:
+Voici un appel à un module avec prise en charge du cache:
 
-	$this->pyrocache->model('blog_m', 'get_posts', array($category_id, 'live'), 120); // keep for 2 minutes 
+	$this->pyrocache->model('blog_m', 'get_posts', array($category_id, 'live'), 120); // garder 2 minutes 
 
-	// Keep forever
-	$this->pyrocache->library('some_library', 'calculate_something', array($foo, $bar, $bla)); // keep for default time (0 = unlimited)
+	// Garder définitivement
+	$this->pyrocache->library('some_library', 'calculate_something', array($foo, $bar, $bla)); // garder pour un temps donné par défaut (0 = unlimited)
 
-	// Clear / Delete cache for a library or model
+	// Vider / Supprimer le cache pour une librairie ou un modèle
 	$this->pyrocache->delete_all('some_library');
+
 
 This is basically a really simple way to wrap your model and library calls with cache logic to save you having to manually check expiry dates and the like. If you feel like doing it manually or are dealing with caching that is not inside a model or library method then you can do things the old fashioned way too:
 
@@ -38,6 +40,7 @@ If you are using a *nix system then you will want to use the following command:<
 
 This will remove any cached models. To remove a library, mention the name instead of *_m.</p>
 
-### Can I make PyroCache use Memcache, XCache, etc?
+### Puis-je utiliser Memcache, XCache, etc. quand j'utilise PyroCache ?
 
+Non, pour cela vous devez utiliser la <a href="http://codeigniter.com/user_guide/libraries/caching.html" target="_blank">classe Cache</a> de CodeIgniter.
 Nope, for that you need to work with the <a href="http://codeigniter.com/user_guide/libraries/caching.html" target="_blank">Cache class</a> in CodeIgniter Reactor. It does not have the model/library call features, but will let you work with multiple caching mechanisms very easily.
