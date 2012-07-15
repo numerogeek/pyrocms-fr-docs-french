@@ -1,4 +1,4 @@
-# Ressources CSS et JS (Asset)
+# Ressources CSS et JS (Assets)
 
 La gestion des ressources CSS et JS est pris en charge par la librairie PHP Asset écrite par Antony Male. Cette librairie, facile à utiliser, vous permet d'utiliser les fonctionnalités suivantes:
 
