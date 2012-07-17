@@ -1,28 +1,32 @@
 # Developing Widgets
 
-Widgets are quite similar to <a href="/docs/glossary#plugins">Plugins</a> in the way they are inserted into content, but they are a little more clever. They allow even your least experienced client or administrator to manage chunks of intelligent content on their site without needing to learn loads of tags, HTML or call you in to help.
+Les widgets sont assez semblables aux Plugins href="/docs/glossary#plugins"> </ a> dans la façon dont ils sont insérés dans le contenu, mais ils sont un peu plus "intelligent". Ils permettent au client ou de l'administrateur de gérer des morceaux de contenu "intelligent" sur ​​leur site sans avoir à apprendre des tas de tags, HTML ou si vous appelez à la rescousse.
 
 <a href="/docs/glossary#widget-areas">Widget Areas</a> can be defined (header, sidebar, blog page footers, etc) then Widget Instances can be added in them. Available Widgets currently include HTML blocks, Twitter Feeds, RSS Feeds, Google Maps and Social Bookmarks. More will be included over time, and you can make your own very easily.
 
-##Where do i put my widgets?
 
-Widgets can be stored directly in three places
+<a href="/docs/glossary#widget-areas">Les domaines Widget </ a> peut être définie (en-tête, encadré, pieds de page de blog, etc), alors des instances Widget peut être ajouté en eux. Les Widgets disponibles actuellement comprennent des blocs HTML, flux Twitter, flux RSS, Google Maps et Social Bookmarks. Plus ils seront inclus dans le temps, et vous pouvez faire votre propre widget très facilement.
 
-* the /addons/widgets folder 
-* the /addons/widgets/*&lt;widget-name&gt;* 
-* or inside a module folder for example: /addons/modules/*&lt;module-name&gt;/widgets/&lt;widget-name&gt;*
 
-## What are the main components of a widget
+##Où puis-je mettre mes widgets?
 
-The main components of a widget are:
+Les widgets peuvent être stockés directement dans trois endroits
 
-* the widget class.
-* views/form.php &ndash; a view that will be rendered in the widget admin interface.
-* views/display.php &ndash; a view that will be used to render output in the frontend site content.
+* Dans le dossier /addons/widgets
+* Dans le dossier /addons/widgets/*&lt;widget-name&gt;* 
+* ou à l'intérieur d'un dossier de module par exemple: /addons/modules/*&lt;module-name&gt;/widgets/&lt;widget-name&gt;*
 
-## How should a widget be structured?
+## Quelles sont les principales composantes d'un widget
 
-For example, lets say we want to create a widget called "awesome_sauce". Our structure would be as such:
+Les principaux composants d'un widget sont:
+
+* la classe du widget.
+* views/form.php &ndash; une vue qui sera rendue dans l'interface d'admin widget.
+* views/display.php &ndash; une vue qui sera utilisé pour rendre la production dans le contenu du site frontend.
+
+## Comment doit être structuré un widget?
+
+Par exemple, disons que nous voulons créer un widget appelé "awesome_sauce". Notre structure serait en tant que telle:
 
     - awesome_sauce (folder)
       * awesome_sauce.php (widget class)
@@ -30,11 +34,11 @@ For example, lets say we want to create a widget called "awesome_sauce". Our str
           * form.php (admin view)
           * display.php (frontend view)
 
-We will now explain each component in more detail:
+Nous allons maintenant expliquer chaque composant de façon plus détaillée:
 
-### The widget class file
+### La classe du widget
 
-Please take this opportunity to read through the code below and make note of the comments.
+S'il vous plaît saisissez cette occasion pour lire le code ci-dessous et prendre note des commentaires.
 
     <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
@@ -96,17 +100,17 @@ Please take this opportunity to read through the code below and make note of the
 	    }
     }
 
-If you have made it this far and have read the comments in the above code that should pretty much get you on the right path to creating your first widget. However I would like to point out one thing before moving on.
+Si vous êtes arrivé à ce point et avez  lu les commentaires du code ci-dessus qui devraient à peu près vous mettre sur la bonne voie pour la création de votre premier widget. Cependant, je tiens à souligner une chose avant de passer à la suite.
 
-The widget class name should be in the following format: "**Widget_Awesome_sauce**" and must extend the "**Widgets**" core class.
+Le nom de la classe widget doit être dans le format suivant: "**Widget_Awesome_sauce**" and doit étendre de la class core "**Widgets**" .
 
-### The view files
+### Les fichiers vues
 
-Not much to be said here other than the view files should be partial views only. The views should not include html, body, head elements. The view files must also be named **form.php** and **display.php** respectively.
+Pas grand chose à dire ici d'autre que les fichiers de vues doivent être des vues partielles seulement. Les vues ne doivent pas inclure html, body, header. Les fichiers de vues doit aussi être nommé respectivement **form.php** et **display.php**.
 
-## Example usage
+## Exemple d'utilisation
 
-All you need to do for this to work is open up a theme layout or page layout and enter:
+Tout ce que vous devez faire pour que cela fonctionne, c'est d'ouvrir une présentation thématique ou la mise en page et entrez:
 
     {{ noparse }}
 {{ pyro:widgets:area slug="sidebar" }}
