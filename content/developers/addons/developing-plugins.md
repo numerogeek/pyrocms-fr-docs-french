@@ -1,20 +1,20 @@
 # Developing Plugins
 
-One of the central PyroCMS functionality concepts is tags. If you are familiar with PyroCMS you have definitely seem them before. Here is an example of a simple tag that returns the current URL:
+L'un des concepts centraux des fonctionnalités est PyroCMS balises. Si vous êtes familier avec PyroCMS vous avez certainement déjà des plugins auparavant. Voici un exemple d'une balise simple qui retourne l'URL en cours:
 
 	{{ noparse }}{{ url:current }}{{ /noparse }}
 	
-The code behind tags like these is called a plugin. Plugins are special PHP files that have the ability to be called via PyroCMS tags, and can do things like grab tag parameters. They are simple to write and make incorporating complex functionality into PyroCMS layouts clean and organized.
+Le code derrière une balise comme celles-ci est appelé un plugin. Les plugins sont des fichiers spéciaux en PHP qui ont la capacité d'être appelé via des tags PyroCMS, et peut faire des choses comme mettre un paramètres de la balise d'appui. Ils sont simples à écrire et à faire intégrer des fonctionnalités complexes dans les layouts PyroCMS propre et bien organisé.
 
-## Modular vs Standalone Plugins
+## Plugins modulaires vs autonomes
 
-Although they are identical in structure, a plugin can either be standalone file, or be a <def>plugin.php</def> file within a larger module. 
+Bien qu'ils soient identiques dans leur structure, un plugin peut être soit fichier autonome, ou être un fichier <def>plugin.php</def> dans un module plus grand.
 
-A plugin inside a module would be something that compliments a custom module you have built, while a standalone plugin would be something general like a Google Maps plugin or a way to list out Tweets in your own syntax. A standalone plugin does not need a larger module structure; it can be used on its own.
+Un plugin à l'intérieur d'un module serait quelque chose qui complète un module personnalisé que vous avez construit, tandis qu'un plugin autonome serait quelque chose de général, comme un plugin Google Maps ou un moyen de lister les Tweets dans votre propre syntaxe. Un plugin autonome n'a pas besoin d'une structure plus grand module, il peut être utilisé sur son propre.
 
-## Example Plugin
+## Exemple de Plugin
 
-This is the Session plugin which can be found in <def>system/pyrocms/plugins/session.php</def>.
+C'est le plugin session qui peut être trouvé dans <def>system/pyrocms/plugins/session.php</def>.
 
 	&lt;?php defined('BASEPATH') or exit('No direct script access allowed');
 	/**
@@ -84,34 +84,34 @@ This is the Session plugin which can be found in <def>system/pyrocms/plugins/ses
 
 	/* End of file theme.php */
 	
-In the above code, please note a new important items:
+Dans le code ci-dessus, s'il vous plaît noter quelques nouveaux éléments importants:
 
-* The class name is **Plugin_** followed by the plugin name in all lowercase.
-* The plugin class extend the class **Plugin**.
-* Each tag function corresponds directly to a class function.
-* The data of each function is returned, not echoed.
+* Le nom de la class **Plugin_** suivie par le nom du plugin en minuscules.
+* La classe du plugin étend la classe **Plugin**.
+* Chaque fonction tag correspond directement à une fonction de classe.
+* Les données de chaque fonction est retourné, pas un echo.
 	
-## Getting Plugin Tag Attributes
+## Obtenir les attributs de tag du plugin
 
-What makes tags really powerful is they can take attributes that give you the freedom to modify the tag output based on input data. Here is an example:
+Ce qui rend les balises vraiment puissant, c'est qu'ils peuvent prendre des attributs qui vous donnent la liberté de modifier la sortie tag sur la base de données d'entrée. Voici un exemple:
 
 	{{ noparse }}{{ session:data name="foo" }}{{ /noparse }}
 
-In the code above, we can access the name parameter within the data function like this:
+Dans le code ci-dessus, nous pouvons accéder au paramètre nom dans la fonction de données comme ceci:
 
 	$this->attribute('name');
 
-In case no attribute is set, you can specify a default value:
+Au cas où aucun attribut est défini, vous pouvez spécifier une valeur par défaut:
 
 	$this->attribute('name', 'a default value');
 	
-If no value has been specified, $this->attribute will use the default value.
+Si aucune valeur n'a été spécifiée, $this->attribute sera utilisé la valeur par défaut.
 
 ## Tag Pairs
 
-Tags are not always just one line that returns a simple string. Tags can also be pairs, meaning they have an opening and closing tag and content between them.
+Tags ne sont pas toujours en une seule ligne qui renvoie une chaîne simple. Les Tags peuvent également être des paires, ce qui signifie qu'ils ont une ouverture et de fermeture de balise et de contenu entre eux.
 
-Plugins have some features built into them in order to easily handle tag pairs. For example, here is the blog:posts tag: 
+Les plugins ont quelques fonctionnalités intégrées afin de gérer facilement les paires de balises. Par exemple, voici le blog:posts tag: 
 
     {{ noparse }}
 {{ blog:posts limit="5" order-by="title" }}
@@ -120,11 +120,11 @@ Plugins have some features built into them in order to easily handle tag pairs. 
 {{ /blog:posts  }}
     {{ /noparse }}
 
-The top tag takes parameters, and there is a bottom closing tag. Inside the tag, there are variables that we need to replace with data, returning just a string will not do it.
+Le premier tag prend des paramètres, et il ya une balise de fermeture en bas.A l'intérieur de la balise, il ya des variables dont nous avons besoin afin de remplacer des données.
 
-In cases like these, we can return an associative array data structure from our plugin function, and the variables will be replaced with the data we send. In this case, we can return an array of blog entries to this tag from the plugin file will cause the tag parser to loop through each array node (each blog post in our case) and replace the variables between the opening and closing tags with the variables you have defined.
+Dans de tels cas, nous pouvons retourner un tableau associatif de structure de données à partir de notre fonction de plugin, et les variables seront remplacées par les données que nous renvoyons. Dans ce cas, nous pouvons retourner un tableau d'entrées de blog à cette balise dans le fichier plugin et provoquer l'analyseur tag pour boucler à travers chaque noeud array (chaque billet de blog dans notre cas) et de remplacer les variables entre l'ouverture et la balise fermante avec le variables que vous avez défini.
 
-Here is an example of what we could return:
+Voici un exemple de ce que nous pourrions revenir:
 
 	return array(
 		array(
@@ -139,9 +139,9 @@ Here is an example of what we could return:
 		)
 	);
 
-You woud want to query the database to get the right blog posts, but that is the general idea.
+Vous voulez interroger la base de données pour obtenir des billets du bon blog , mais c'est l'idée générale.
 
-It is possible to even send variables that are associative arrays and these can be looped through in within the tags:
+Il est même possible d'envoyer des variables qui sont des tableaux associatifs et ceux-ci peuvent être bouclée dans l'intérieur des balises:
 
 	{{ noparse }}
 {{ categories }}
@@ -151,11 +151,11 @@ It is possible to even send variables that are associative arrays and these can 
 
 ### Tag Pair Raw Content
 
-You can also get and use the full content between the tags in a plugin by calling this in your plugin file:
+Vous pouvez également obtenir et utiliser le contenu complet entre les balises dans un plugin en appelant dans votre fichier de plugin:
 
 	$this->content();
 	
-The tag pair content can be modified before parsing it by calling up the Lex parser itself and returning a string:
+Le contenu de tag pair peut être modifié avant l'analyse en appelant l'analyseur Lex lui-même et de retourner une chaîne:
 
 	$parser = new Lex_Parser();
 	$parser->scope_glue(':');
