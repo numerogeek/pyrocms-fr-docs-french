@@ -46,7 +46,8 @@
 				<ul>
 					<li{{ if segment_1 == 'general' }} class="current"{{ endif }}>{{ link uri="general" title="G&eacute;n&eacute;ralit&eacute;s" }}</li>
 					<li{{ if segment_1 == 'modules-and-tags' }} class="current"{{ endif }}>{{ link uri="modules-and-tags" title="Modules &amp; Tags" }}</li>
-					<li><a href="http://www.pyrocms.fr/contact"> Traduction en cours, si vous souhaitez nous aider, Contactez nous !</a></li>
+					<li{{ if segment_1 == 'developper' }} class="current"{{ endif }}>{{ link uri="developper" title="Developpeur" }}</li>
+					<li><a href="http://www.pyrocms.fr/contact"> Traduction en cours, Contactez nous !</a></li>
 					 
 					<!--<li{{ if segment_1 == 'developers' }} class="current"{{ endif }}>{{ link uri="developers" title="Developpeurs" }}</li>
 					<li{{ if segment_1 == 'pyrocms-pro' }} class="current"{{ endif }}>{{ link uri="pyrocms-pro" title="PyroCMS Pro" }}</li> -->
