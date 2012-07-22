@@ -1,82 +1,82 @@
-# Streams API Streams Driver
+# Driver Flux (Streams Driver)
 
-The streams driver is used to create and manipulate streams. Streams represent tables of data in the database.
+Le driver streams est utilisé pour créer et manipuler des flux. les flux représentent des tableaux de données dans la base de données.
 
-You can call the streams driver like this:
+Vous pouvez appeler le driver streams ainsi:
 
 	$this->streams->streams->function();
 	
-## Preset Fields
+## Champs Prédéfinis
 
-When you create a stream, the following fields are created automatically.
+Quand vous créer un flux, les champs suivants sont créé automatiquement.
 
 <table>
 	<tr>
 		<td width="25%"><strong>id</strong>
-		<td>An auto-incrementing standard primary key ID.</td>
+		<td>une clé primaire auto-incrémentée ID.</td>
 	</tr>
 	<tr>
 		<td><strong>created</strong>
-		<td>A MySQL datetime field of when an entry was created.</td>
+		<td>Un champ MySQL de type DATETIME qui enregistre la date de création de l'entrée.</td>
 	</tr>
 	<tr>
 		<td><strong>updated</strong>
-		<td>A MySQL datetime field of the last time an entry was updated.</td>
+		<td>Un champ MySQL de type DATETIME qui enregistre la date de mise à jour de l'entrée.</td>
 	</tr>
 	<tr>
 		<td><strong>created_by</strong>
-		<td>ID of the user who initially created the entry.</td>
+		<td>id de l'utlisateur qui a initialement créé cette entrée.</td>
 	</tr>
 	<tr>
 		<td><strong>ordering_count</strong>
-		<td>Incrementing numerical ordering count.</td>
+		<td>Incrément numérique qui permet d'ordonner les éléments.</td>
 	</tr>
 </table>
 
 ## add_stream(<var>$stream\_name, $stream\_slug, $namespace, $prefix = NULL, $about = NULL</var>)
 
-The **add_stream** function allows you to create a stream. It will create the actual table in the database, as well as the streams metadata in the streams table.
+La fonction **add_stream** permet de créer un flux. Il créera la table en base de données, ainsi que les métadonnées du flux dans la table streams.
 	
-### Parameters
+### Paramètres
 
 <table>
 	<tr>
 		<td width="25%"><strong>stream_name</strong>
-		<td>The full name of the stream.</td>
+		<td>Le nom complet du flux.</td>
 	</tr>
 	<tr>
 		<td><strong>stream_slug</strong>
-		<td>The stream slug.</td>
+		<td>Le slug du flux.</td>
 	</tr>
 	<tr>
 		<td><strong>namespace</strong>
-		<td>A namespace for your stream.</td>
+		<td>L'espace de nom de votre flux.</td>
 	</tr>
 	<tr>
 		<td><strong>prefix</strong>
-		<td>Optional. A stream prefix. Will be used in the stream database table name.</td>
+		<td>Optionnel. Un préfixe de flux. Sera utilisé comme nom de table dans la base de données.</td>
 	</tr>
 	<tr>
 		<td><strong>about</strong>
-		<td>Optional. A short blurb about the stream.</td>
+		<td>Optionnel. Une description courte du flux.</td>
 	</tr>
 </table>
 
-### Example:
+### Exemple:
 
-In this example we add the recipe stream. Since the module is also called "recipes", our namespace is called "recipes". We are not providing a prefix in this case, so our table will be created a **default_recipes**. If we had a prefix, let's say 'rec_', it would be **default\_rec\_recipes**.
+Dans cet exemple, nous ajoutons un flux FAQ. Le module s'appelant "faqs", notre espace de nom sera appelé "faq". Nous ne fournissons pas de préfixe dans ce cas, nous créons ainsi une table **default_faqs**. Si nous paramétrons un préfixe par exemple 'faq_' la table créée sera **default\_faq\_faqs**.
 
-	$this->streams->streams->add_stream('FAQs', 'faqs', 'streams_sample', 'sample_', NULL);
+	$this->streams->streams->add_stream('FAQ', 'faqs', 'stream_sample', 'faq_', null);
 
 ## get_stream(<var>$stream\_slug, $namespace</var>)
 
-Gets data about a stream. It does not retrieve entries, just the stream metadata.
+Récupère les données d'un flux. Cette fonction ne récupère pas les entrées, seulement les métadonnées du flux.
 	
-### Example:
+### Exemple:
 
 	$this->streams->streams->get_stream('faqs', 'streams_sample');
 
-Returns:
+Retourne:
 	
 	stdClass Object
 	(
